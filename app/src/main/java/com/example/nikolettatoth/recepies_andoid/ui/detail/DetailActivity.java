@@ -4,7 +4,12 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import javax.inject.Inject;
+
 public class DetailActivity extends AppCompatActivity implements DetailScreen{
+
+    @Inject
+    DetailPresenter detailPresenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
