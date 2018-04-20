@@ -1,19 +1,22 @@
 package com.example.nikolettatoth.recepies_andoid.model;
 
+import com.orm.dsl.Table;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Table
 public class MealModel {
-    private String id;
+    private int id;
     private String name;
     private List<String> ingredients = new ArrayList<String>();
     private String instructions;
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
@@ -40,4 +43,8 @@ public class MealModel {
     public String getInstructions() {
         return instructions;
     }
+
+    //TODO picture
+
 }
+

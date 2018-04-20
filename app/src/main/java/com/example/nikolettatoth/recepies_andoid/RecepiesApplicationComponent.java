@@ -27,6 +27,8 @@ public interface RecepiesApplicationComponent {
 
     void inject(DetailPresenter detailPresenter);
 
+    void inject(RecepiesApplication recepiesApplication);
+
     }
 
 
