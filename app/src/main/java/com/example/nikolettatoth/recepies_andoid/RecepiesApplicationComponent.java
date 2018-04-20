@@ -5,6 +5,8 @@ import com.example.nikolettatoth.recepies_andoid.interactor.recepies.RecepiesInt
 import com.example.nikolettatoth.recepies_andoid.network.NetworkModul;
 import com.example.nikolettatoth.recepies_andoid.ui.UIModule;
 import com.example.nikolettatoth.recepies_andoid.ui.detail.DetailActivity;
+import com.example.nikolettatoth.recepies_andoid.ui.detail.DetailPresenter;
+import com.example.nikolettatoth.recepies_andoid.ui.main.MainPresenter;
 
 import javax.inject.Singleton;
 
@@ -20,6 +22,10 @@ public interface RecepiesApplicationComponent {
     void inject(DetailActivity detailActivity);
 
     void inject(RecepiesInteractor recepiesInteractor);
+
+    void inject(MainPresenter mainPresenter);
+
+    void inject(DetailPresenter detailPresenter);
 
     }
 
