@@ -66,4 +66,7 @@ dependencies {
     implementation "io.swagger:swagger-annotations:$swagger_annotations_version"
     implementation "org.apache.oltu.oauth2:org.apache.oltu.oauth2.client:$oltu_version"
 
+    //SugarORM
+    implementation 'com.github.satyan:sugar:1.4'
+
 }
