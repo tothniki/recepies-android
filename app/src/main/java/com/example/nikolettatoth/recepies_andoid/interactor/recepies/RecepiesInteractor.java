@@ -15,8 +15,8 @@ public class RecepiesInteractor {
     @Inject
     MealApi mealApi;
 
-    @Inject
-    Repository repository;
+    //@Inject
+    //Repository repository;
 
     public RecepiesInteractor(){
         RecepiesApplication.injector.inject(this);
