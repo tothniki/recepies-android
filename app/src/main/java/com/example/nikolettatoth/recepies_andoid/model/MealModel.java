@@ -7,17 +7,17 @@ import java.util.List;
 
 @Table
 public class MealModel {
-    private int id;
+    private long id;
     private String name;
     private List<String> ingredients = new ArrayList<String>();
     private String instructions;
     private String picture;
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

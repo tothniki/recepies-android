@@ -10,6 +10,7 @@ import com.example.nikolettatoth.recepies_andoid.network.model.Meals;
 import com.example.nikolettatoth.recepies_andoid.network.model.MealsByCategory;
 import com.example.nikolettatoth.recepies_andoid.ui.Presenter;
 
+import java.io.Console;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +24,7 @@ public class MainPresenter extends Presenter<MainScreen> {
 
     @Inject
     RepositoryInteractor repositoryInteractor;
-
+    @Inject
     Executor executor;
 
    // public MainPresenter(){

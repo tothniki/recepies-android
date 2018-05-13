@@ -69,4 +69,7 @@ dependencies {
     //SugarORM
     implementation 'com.github.satyan:sugar:1.4'
 
+    //RecycleView
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
+
 }

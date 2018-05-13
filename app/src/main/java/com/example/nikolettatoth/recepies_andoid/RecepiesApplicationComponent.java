@@ -21,18 +21,17 @@ import dagger.Component;
 public interface RecepiesApplicationComponent {
 
     void inject(MainActivity mainActivity);
-
-    void inject(DetailActivity detailActivity);
-
-    void inject(RecepiesInteractor recepiesInteractor);
-
     void inject(MainPresenter mainPresenter);
 
+    void inject(DetailActivity detailActivity);
     void inject(DetailPresenter detailPresenter);
 
-    void inject(RecepiesApplication recepiesApplication);
-
+    void inject(RecepiesInteractor recepiesInteractor);
     void inject(RepositoryInteractor repositoryInteractor);
+
+    //void inject(RecepiesApplication recepiesApplication);
+
+
 
     }
 
