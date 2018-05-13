@@ -1,9 +1,12 @@
 package com.example.nikolettatoth.recepies_andoid.ui.main;
 
 import com.example.nikolettatoth.recepies_andoid.R;
+import com.example.nikolettatoth.recepies_andoid.model.MealModel;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -26,6 +29,16 @@ public class MainActivity extends AppCompatActivity implements MainScreen {
     @Override
     protected void onStop() {
         super.onStop();
+    }
+
+    @Override
+    public void showMeals(final List<MealModel> meals){
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                //..;
+            }
+        });
     }
 
 }

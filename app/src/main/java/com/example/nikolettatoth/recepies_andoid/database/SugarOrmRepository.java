@@ -22,7 +22,7 @@ public class SugarOrmRepository implements Repository {
     }
 
     @Override
-    public List<MealModel> getMeals() {
+    public List<MealModel> getAllMeals() {
         return SugarRecord.listAll(MealModel.class);
     }
 
@@ -32,8 +32,13 @@ public class SugarOrmRepository implements Repository {
     }
 
     @Override
+    public void saveAllMeals(List<MealModel> meals) {
+        SugarRecord.saveInTx(meals);
+    }
+
+    @Override
     public void updateMeals(List<MealModel> newMiels) {
-        List<MealModel> oldMiels = getMeals();
+        List<MealModel> oldMiels = getAllMeals();
         List<MealModel> toUpdate = new ArrayList<>(oldMiels.size());
         for (MealModel oldmeal : oldMiels) {
             for (MealModel newmeal : newMiels) {
@@ -48,6 +53,11 @@ public class SugarOrmRepository implements Repository {
     @Override
     public void removeMeal(MealModel meal) {
         SugarRecord.deleteInTx(meal);
+    }
+
+    @Override
+    public void removeAll(){
+        SugarRecord.deleteAll(MealModel.class);
     }
 
     @Override

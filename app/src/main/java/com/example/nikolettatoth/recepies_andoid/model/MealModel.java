@@ -11,6 +11,7 @@ public class MealModel {
     private String name;
     private List<String> ingredients = new ArrayList<String>();
     private String instructions;
+    private String picture;
 
     public void setId(int id) {
         this.id = id;
@@ -44,7 +45,13 @@ public class MealModel {
         return instructions;
     }
 
-    //TODO picture
 
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
 }
 

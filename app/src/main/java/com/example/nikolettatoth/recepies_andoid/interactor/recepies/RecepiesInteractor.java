@@ -30,6 +30,4 @@ public class RecepiesInteractor {
         return this.mealApi.getMealById(id).execute().body();
     }
 
-    //TODO Meals modelből a MealModel-re váltani !
-
 }
