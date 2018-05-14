@@ -1,12 +1,17 @@
 package com.example.nikolettatoth.recepies_andoid.ui.main;
 
+import com.crashlytics.android.Crashlytics;
 import com.example.nikolettatoth.recepies_andoid.R;
 import com.example.nikolettatoth.recepies_andoid.RecepiesApplication;
 import com.example.nikolettatoth.recepies_andoid.model.MealModel;
 import com.example.nikolettatoth.recepies_andoid.ui.detail.DetailActivity;
 import com.example.nikolettatoth.recepies_andoid.ui.main.adapter.ListAdapter;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -14,14 +19,18 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 
 public class MainActivity extends AppCompatActivity implements MainScreen, SwipeRefreshLayout.OnRefreshListener, ListAdapter.ClickListener {
+
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     @Inject
     MainPresenter mainPresenter;
@@ -50,6 +59,8 @@ public class MainActivity extends AppCompatActivity implements MainScreen, Swipe
 
         swipeRefreshLayout = findViewById(R.id.swipeRefresh);
         swipeRefreshLayout.setOnRefreshListener(this);
+        // Obtain the FirebaseAnalytics instance.
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
     }
 
@@ -58,6 +69,7 @@ public class MainActivity extends AppCompatActivity implements MainScreen, Swipe
         super.onStart();
         mainPresenter.attachScreen(this);
         mainPresenter.loadMealsFromRepo();
+
     }
 
     @Override
@@ -91,9 +103,16 @@ public class MainActivity extends AppCompatActivity implements MainScreen, Swipe
 
     @Override
     public void onClick(MealModel mealitem) {
+       // Crashlytics.getInstance().crash();
         Intent i = new Intent(getApplicationContext(), DetailActivity.class);
         i.putExtra("id", mealitem.getId());
         startActivity(i);
+
+        Bundle bundle = new Bundle();
+        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, Long.toString(mealitem.getId()));
+        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, mealitem.getName());
+        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "Get details");
+        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
     }
 
 }

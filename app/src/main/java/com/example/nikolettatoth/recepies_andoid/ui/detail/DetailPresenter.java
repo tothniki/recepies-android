@@ -1,22 +1,36 @@
 package com.example.nikolettatoth.recepies_andoid.ui.detail;
 
 import com.example.nikolettatoth.recepies_andoid.RecepiesApplication;
+import com.example.nikolettatoth.recepies_andoid.database.Repository;
 import com.example.nikolettatoth.recepies_andoid.interactor.recepies.RecepiesInteractor;
+import com.example.nikolettatoth.recepies_andoid.model.MealModel;
 import com.example.nikolettatoth.recepies_andoid.ui.Presenter;
+
+import java.util.concurrent.Executor;
 
 import javax.inject.Inject;
 
 public class DetailPresenter extends Presenter<DetailScreen> {
     @Inject
-    RecepiesInteractor recepiesInteractor;
+    Repository repositoryInteractor;
 
-    public DetailPresenter(){
-        RecepiesApplication.injector.inject(this);
+    @Inject
+    Executor executor;
+
+    public void loadMeal(final long id){
+        executor.execute(new Runnable(){
+            @Override
+            public void run(){
+                MealModel meal = repositoryInteractor.getMealById(id);
+                screen.showMeal(meal);
+            }
+        });
     }
 
     @Override
     public void attachScreen(DetailScreen screen) {
         super.attachScreen(screen);
+        RecepiesApplication.injector.inject(this);
     }
 
     @Override

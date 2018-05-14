@@ -23,7 +23,17 @@ public class SugarOrmRepository implements Repository {
 
     @Override
     public List<MealModel> getAllMeals() {
-        return SugarRecord.listAll(MealModel.class);
+        List<MealModel> v = SugarRecord.listAll(MealModel.class);
+        return v;
+    }
+
+    @Override
+    public MealModel getMealById(final long id) {
+       MealModel v = SugarRecord.findById(MealModel.class, id);
+       if(v !=null){
+           return v;
+       }
+        return new MealModel();
     }
 
     @Override
@@ -33,7 +43,13 @@ public class SugarOrmRepository implements Repository {
 
     @Override
     public void saveAllMeals(List<MealModel> meals) {
-        SugarRecord.saveInTx(meals);
+        int i=0;
+        for (MealModel m : meals) {
+            SugarRecord.save(m);
+            i++;
+        }
+        i=i+1;
+       // SugarRecord.saveInTx(meals);
     }
 
     @Override

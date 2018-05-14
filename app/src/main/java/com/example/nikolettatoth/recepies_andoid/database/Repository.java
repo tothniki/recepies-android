@@ -17,6 +17,8 @@ public interface Repository {
 
     List<MealModel> getAllMeals();
 
+    MealModel getMealById(long id);
+
     void saveMeal(MealModel meal);
 
     void saveAllMeals (List<MealModel> meals);

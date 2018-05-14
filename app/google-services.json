@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "768427542570",
+    "firebase_url": "https://mobsofthf.firebaseio.com",
+    "project_id": "mobsofthf",
+    "storage_bucket": "mobsofthf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:768427542570:android:e1533120b2733f37",
+        "android_client_info": {
+          "package_name": "com.example.nikolettatoth.recepies_andoid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "768427542570-ngorcqapm8rr7drm4hdn1kp2rumngq3i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuHV6Ed4J4kq59kC59UEWiyKboBPVKOMo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
