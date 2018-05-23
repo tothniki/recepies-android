@@ -65,13 +65,14 @@ public class MainPresenter extends Presenter<MainScreen> {
     }
 
     private List<MealModel> saveMeals(final List<Meal> mealList){
-        Meal[] meals= new Meal[mealList.size()];
-        meals = mealList.toArray(meals);
+      //  Meal[] meals= new Meal[mealList.size()];
+     //   meals = mealList.toArray(meals);
 
-        MealModel meal = new MealModel();
+
         List<MealModel> newList = new ArrayList<MealModel>();
 
-        for (Meal m : meals) {
+        for (Meal m : mealList) {
+            MealModel meal = new MealModel();
             meal.setId(Integer.parseInt(m.getIdMeal()));
             meal.setName(m.getStrMeal());
             meal.setInstructions(m.getStrInstructions());
@@ -80,12 +81,13 @@ public class MainPresenter extends Presenter<MainScreen> {
             newList.add(meal);
         }
 
-        repositoryInteractor.removeAll();
+        repositoryInteractor.removeAll(); //TODO legyen csak update, hogy a sajat hozzaadottak megmaradjanak
         repositoryInteractor.saveAllMeals(newList);
         return newList;
     }
 
-    private List<String> createIngredientsList(Meal m){
+    private String createIngredientsList(Meal m){
+
         List<String> ingredients = new ArrayList<String>();
         ingredients.add(m.getStrIngredient1()+' ' + m.getStrMeasure1());
         ingredients.add(m.getStrIngredient2()+' ' + m.getStrMeasure2());
@@ -107,7 +109,14 @@ public class MainPresenter extends Presenter<MainScreen> {
         ingredients.add(m.getStrIngredient18()+' ' + m.getStrMeasure18());
         ingredients.add(m.getStrIngredient19()+' ' + m.getStrMeasure19());
         ingredients.add(m.getStrIngredient20()+' ' + m.getStrMeasure20());
-        return ingredients;
+        String ingr = "";
+        for(String s :ingredients){
+            if(!s.equals(" ,") && s!=null){
+                ingr = ingr+s;
+            }
+        }
+
+        return ingr.toString();
     }
 
     public void loadMealsFromRepo(){

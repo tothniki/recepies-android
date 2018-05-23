@@ -1,15 +1,15 @@
 package com.example.nikolettatoth.recepies_andoid.model;
 
+import com.orm.SugarRecord;
 import com.orm.dsl.Table;
-
 import java.util.ArrayList;
 import java.util.List;
 
 @Table
-public class MealModel {
+public class MealModel{
     private long id;
     private String name;
-    private List<String> ingredients = new ArrayList<String>();
+    private String ingredients;
     private String instructions;
     private String picture;
 
@@ -17,15 +17,15 @@ public class MealModel {
         this.id = id;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setIngredients(List<String> ingredients) {
+    public void setIngredients(String ingredients) {
         this.ingredients = ingredients;
     }
 
-    public List<String> getIngredients() {
+    public String getIngredients() {
         return ingredients;
     }
 

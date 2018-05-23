@@ -1,9 +1,12 @@
 package com.example.nikolettatoth.recepies_andoid.ui.main.adapter;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,8 +17,13 @@ import android.widget.TextView;
 
 import com.example.nikolettatoth.recepies_andoid.R;
 import com.example.nikolettatoth.recepies_andoid.model.MealModel;
+import com.example.nikolettatoth.recepies_andoid.network.model.Meal;
 
+
+import java.io.IOException;
 import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,7 +59,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
                 }
             }
         });
-      //  new DownloadImageTask(holder.imageView).execute(meal.getPicture());
 
     }
 
@@ -74,6 +81,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             textView = (TextView)itemView.findViewById(R.id.recipe_title);
             imageView = (ImageView) itemView.findViewById(R.id.recipe_img);
         }
+
     }
 
     public void setListener(ClickListener listener) {
@@ -87,31 +95,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
     public interface ClickListener {
         void onClick(MealModel item);
-    }
-
-    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
-        ImageView bmImage;
-
-        public DownloadImageTask(ImageView bmImage) {
-            this.bmImage = bmImage;
-        }
-
-        protected Bitmap doInBackground(String... urls) {
-            String urldisplay = urls[0];
-            Bitmap mIcon11 = null;
-            try {
-                InputStream in = new java.net.URL(urldisplay).openStream();
-                mIcon11 = BitmapFactory.decodeStream(in);
-            } catch (Exception e) {
-                Log.e("Error", e.getMessage());
-                e.printStackTrace();
-            }
-            return mIcon11;
-        }
-
-        protected void onPostExecute(Bitmap result) {
-            bmImage.setImageBitmap(result);
-        }
     }
 }
 

@@ -8,6 +8,7 @@ import com.example.nikolettatoth.recepies_andoid.ui.detail.DetailActivity;
 import com.example.nikolettatoth.recepies_andoid.ui.main.adapter.ListAdapter;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
+
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements MainScreen, Swipe
         adapter = new ListAdapter();
         adapter.setListener(this);
         recyclerView.setAdapter(adapter);
+
 
         swipeRefreshLayout = findViewById(R.id.swipeRefresh);
         swipeRefreshLayout.setOnRefreshListener(this);
@@ -106,6 +108,7 @@ public class MainActivity extends AppCompatActivity implements MainScreen, Swipe
        // Crashlytics.getInstance().crash();
         Intent i = new Intent(getApplicationContext(), DetailActivity.class);
         i.putExtra("id", mealitem.getId());
+        i.putExtra("name", mealitem.getName());
         startActivity(i);
 
         Bundle bundle = new Bundle();

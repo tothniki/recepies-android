@@ -1,69 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="horizontal"
-        android:padding="8dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="8dp">
-
-
+        android:layout_width="352dp"
+        android:layout_height="479dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/recipe_img"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:gravity="center"
-            android:padding="5dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:background="@color/colorAccent"
-            />
+            android:isScrollContainer="false"
+            android:scaleType="centerCrop"
+            app:srcCompat="@color/colorAccent" />
 
-        <LinearLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:orientation="horizontal"
-            android:padding="8dp"
+        <TextView
+            android:id="@+id/recipe_ingred"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="8dp">
+            android:layout_weight="1"
+            android:text="text"
+            tools:text="nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn" />
 
-
-
-            <TextView
-                android:id="@+id/recipe_ingred"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_weight="1"
-                android:layout_gravity="bottom"
-                android:gravity="left"
-                android:text="Niki"
-                android:background="@color/colorAccent"
-                android:padding="5dp"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                />
-
-
-            <TextView
-                android:id="@+id/recipe_instr"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_weight="2"
-                android:layout_gravity="bottom"
-                android:gravity="left"
-                android:text="Niki"
-                android:background="@color/colorAccent"
-                android:padding="5dp"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                />
-
-        </LinearLayout>
-
-
+        <TextView
+            android:id="@+id/recipe_instr"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="TextView"
+            tools:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" />
     </LinearLayout>
-
 </android.support.constraint.ConstraintLayout>

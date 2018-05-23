@@ -43,13 +43,13 @@ public class SugarOrmRepository implements Repository {
 
     @Override
     public void saveAllMeals(List<MealModel> meals) {
-        int i=0;
+        /*int i=0;
         for (MealModel m : meals) {
             SugarRecord.save(m);
             i++;
         }
-        i=i+1;
-       // SugarRecord.saveInTx(meals);
+        i=i+1;*/
+       SugarRecord.saveInTx(meals);
     }
 
     @Override
