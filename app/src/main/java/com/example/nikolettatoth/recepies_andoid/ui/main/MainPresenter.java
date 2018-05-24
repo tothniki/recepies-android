@@ -92,29 +92,29 @@ public class MainPresenter extends Presenter<MainScreen> {
     private String createIngredientsList(Meal m){
 
         List<String> ingredients = new ArrayList<String>();
-        ingredients.add(m.getStrIngredient1()+' ' + m.getStrMeasure1());
-        ingredients.add(m.getStrIngredient2()+' ' + m.getStrMeasure2());
-        ingredients.add(m.getStrIngredient3()+' ' + m.getStrMeasure3());
-        ingredients.add(m.getStrIngredient4()+' ' + m.getStrMeasure4());
-        ingredients.add(m.getStrIngredient5()+' ' + m.getStrMeasure5());
-        ingredients.add(m.getStrIngredient6()+' ' + m.getStrMeasure6());
-        ingredients.add(m.getStrIngredient7()+' ' + m.getStrMeasure7());
-        ingredients.add(m.getStrIngredient8()+' ' + m.getStrMeasure8());
-        ingredients.add(m.getStrIngredient9()+' ' + m.getStrMeasure9());
-        ingredients.add(m.getStrIngredient10()+' ' + m.getStrMeasure10());
-        ingredients.add(m.getStrIngredient11()+' ' + m.getStrMeasure11());
-        ingredients.add(m.getStrIngredient12()+' ' + m.getStrMeasure12());
-        ingredients.add(m.getStrIngredient13()+' ' + m.getStrMeasure13());
-        ingredients.add(m.getStrIngredient14()+' ' + m.getStrMeasure14());
-        ingredients.add(m.getStrIngredient15()+' ' + m.getStrMeasure15());
-        ingredients.add(m.getStrIngredient16()+' ' + m.getStrMeasure16());
-        ingredients.add(m.getStrIngredient17()+' ' + m.getStrMeasure17());
-        ingredients.add(m.getStrIngredient18()+' ' + m.getStrMeasure18());
-        ingredients.add(m.getStrIngredient19()+' ' + m.getStrMeasure19());
-        ingredients.add(m.getStrIngredient20()+' ' + m.getStrMeasure20());
+        ingredients.add(m.getStrIngredient1()+' ' + m.getStrMeasure1()+ ',');
+        ingredients.add(' ' +m.getStrIngredient2()+' ' + m.getStrMeasure2()+ ',');
+        ingredients.add(' ' +m.getStrIngredient3()+' ' + m.getStrMeasure3()+ ',');
+        ingredients.add(' ' +m.getStrIngredient4()+' ' + m.getStrMeasure4()+ ',');
+        ingredients.add(' ' +m.getStrIngredient5()+' ' + m.getStrMeasure5()+ ',');
+        ingredients.add(' ' +m.getStrIngredient6()+' ' + m.getStrMeasure6()+ ',');
+        ingredients.add(' ' +m.getStrIngredient7()+' ' + m.getStrMeasure7()+ ',');
+        ingredients.add(' ' +m.getStrIngredient8()+' ' + m.getStrMeasure8()+ ',');
+        ingredients.add(' ' +m.getStrIngredient9()+' ' + m.getStrMeasure9()+ ',');
+        ingredients.add(' ' +m.getStrIngredient10()+' ' + m.getStrMeasure10()+ ',');
+        ingredients.add(' ' +m.getStrIngredient11()+' ' + m.getStrMeasure11()+ ',');
+        ingredients.add(' ' +m.getStrIngredient12()+' ' + m.getStrMeasure12()+ ',');
+        ingredients.add(' ' +m.getStrIngredient13()+' ' + m.getStrMeasure13()+ ',');
+        ingredients.add(' ' +m.getStrIngredient14()+' ' + m.getStrMeasure14()+ ',');
+        ingredients.add(' ' +m.getStrIngredient15()+' ' + m.getStrMeasure15()+ ',');
+        ingredients.add(' ' +m.getStrIngredient16()+' ' + m.getStrMeasure16()+ ',');
+        ingredients.add(' ' +m.getStrIngredient17()+' ' + m.getStrMeasure17()+ ',');
+        ingredients.add(' ' +m.getStrIngredient18()+' ' + m.getStrMeasure18()+ ',');
+        ingredients.add(' ' +m.getStrIngredient19()+' ' + m.getStrMeasure19()+ ',');
+        ingredients.add(' ' +m.getStrIngredient20()+' ' + m.getStrMeasure20());
         String ingr = "";
         for(String s :ingredients){
-            if(!s.equals(" ,") && s!=null){
+            if(!s.equals("  ,") && s!=null && !s.equals("null")){
                 ingr = ingr+s;
             }
         }

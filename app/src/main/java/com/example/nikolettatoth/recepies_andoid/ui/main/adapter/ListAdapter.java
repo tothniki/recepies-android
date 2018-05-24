@@ -12,7 +12,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.nikolettatoth.recepies_andoid.R;
@@ -70,7 +69,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
         public TextView textView;
-        public ImageView imageView;
         public MealModel mealitem;
         public View view;
 
@@ -79,7 +77,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             super(itemView);
             view = itemView;
             textView = (TextView)itemView.findViewById(R.id.recipe_title);
-            imageView = (ImageView) itemView.findViewById(R.id.recipe_img);
         }
 
     }
