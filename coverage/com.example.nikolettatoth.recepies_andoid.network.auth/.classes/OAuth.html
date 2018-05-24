@@ -1,0 +1,270 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: OAuth</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.nikolettatoth.recepies_andoid.network.auth</a> ]
+</div>
+
+<h1>Coverage Summary for Class: OAuth (com.example.nikolettatoth.recepies_andoid.network.auth)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">OAuth</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 13)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 53)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">OAuth$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 1)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 54)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.nikolettatoth.recepies_andoid.network.auth;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import static java.net.HttpURLConnection.HTTP_UNAUTHORIZED;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;import java.io.IOException;
+<i>6</i>&nbsp;import java.util.Map;
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;import org.apache.oltu.oauth2.client.OAuthClient;
+<i>9</i>&nbsp;import org.apache.oltu.oauth2.client.request.OAuthBearerClientRequest;
+<i>10</i>&nbsp;import org.apache.oltu.oauth2.client.request.OAuthClientRequest;
+<i>11</i>&nbsp;import org.apache.oltu.oauth2.client.request.OAuthClientRequest.AuthenticationRequestBuilder;
+<i>12</i>&nbsp;import org.apache.oltu.oauth2.client.request.OAuthClientRequest.TokenRequestBuilder;
+<i>13</i>&nbsp;import org.apache.oltu.oauth2.client.response.OAuthJSONAccessTokenResponse;
+<i>14</i>&nbsp;import org.apache.oltu.oauth2.common.exception.OAuthProblemException;
+<i>15</i>&nbsp;import org.apache.oltu.oauth2.common.exception.OAuthSystemException;
+<i>16</i>&nbsp;import org.apache.oltu.oauth2.common.message.types.GrantType;
+<i>17</i>&nbsp;import org.apache.oltu.oauth2.common.token.BasicOAuthToken;
+<i>18</i>&nbsp;
+<i>19</i>&nbsp;import okhttp3.Interceptor;
+<i>20</i>&nbsp;import okhttp3.OkHttpClient;
+<i>21</i>&nbsp;import okhttp3.Request;
+<i>22</i>&nbsp;import okhttp3.Request.Builder;
+<i>23</i>&nbsp;import okhttp3.Response;
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;public class OAuth implements Interceptor {
+<i>26</i>&nbsp;
+<i>27</i>&nbsp;    public interface AccessTokenListener {
+<i>28</i>&nbsp;        public void notify(BasicOAuthToken token);
+<i>29</i>&nbsp;    }
+<i>30</i>&nbsp;
+<i>31</i>&nbsp;    private volatile String accessToken;
+<i>32</i>&nbsp;    private OAuthClient oauthClient;
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;    private TokenRequestBuilder tokenRequestBuilder;
+<i>35</i>&nbsp;    private AuthenticationRequestBuilder authenticationRequestBuilder;
+<i>36</i>&nbsp;
+<i>37</i>&nbsp;    private AccessTokenListener accessTokenListener;
+<i>38</i>&nbsp;
+<b class="nc"><i>39</i>&nbsp;    public OAuth( OkHttpClient client, TokenRequestBuilder requestBuilder ) {</b>
+<b class="nc"><i>40</i>&nbsp;        this.oauthClient = new OAuthClient(new OAuthOkHttpClient(client));</b>
+<b class="nc"><i>41</i>&nbsp;        this.tokenRequestBuilder = requestBuilder;</b>
+<i>42</i>&nbsp;    }
+<i>43</i>&nbsp;
+<i>44</i>&nbsp;    public OAuth(TokenRequestBuilder requestBuilder ) {
+<b class="nc"><i>45</i>&nbsp;        this(new OkHttpClient(), requestBuilder);</b>
+<i>46</i>&nbsp;    }
+<i>47</i>&nbsp;
+<i>48</i>&nbsp;    public OAuth(OAuthFlow flow, String authorizationUrl, String tokenUrl, String scopes) {
+<b class="nc"><i>49</i>&nbsp;        this(OAuthClientRequest.tokenLocation(tokenUrl).setScope(scopes));</b>
+<b class="nc"><i>50</i>&nbsp;        setFlow(flow);</b>
+<b class="nc"><i>51</i>&nbsp;        authenticationRequestBuilder = OAuthClientRequest.authorizationLocation(authorizationUrl);</b>
+<i>52</i>&nbsp;    }
+<i>53</i>&nbsp;
+<i>54</i>&nbsp;    public void setFlow(OAuthFlow flow) {
+<b class="nc"><i>55</i>&nbsp;        switch(flow) {</b>
+<i>56</i>&nbsp;        case accessCode:
+<i>57</i>&nbsp;        case implicit:
+<b class="nc"><i>58</i>&nbsp;            tokenRequestBuilder.setGrantType(GrantType.AUTHORIZATION_CODE);</b>
+<b class="nc"><i>59</i>&nbsp;            break;</b>
+<i>60</i>&nbsp;        case password:
+<b class="nc"><i>61</i>&nbsp;            tokenRequestBuilder.setGrantType(GrantType.PASSWORD);</b>
+<b class="nc"><i>62</i>&nbsp;            break;</b>
+<i>63</i>&nbsp;        case application:
+<b class="nc"><i>64</i>&nbsp;            tokenRequestBuilder.setGrantType(GrantType.CLIENT_CREDENTIALS);</b>
+<b class="nc"><i>65</i>&nbsp;            break;</b>
+<i>66</i>&nbsp;        default:
+<i>67</i>&nbsp;            break;
+<i>68</i>&nbsp;        }            
+<i>69</i>&nbsp;    }
+<i>70</i>&nbsp;
+<i>71</i>&nbsp;    @Override
+<i>72</i>&nbsp;    public Response intercept(Chain chain)
+<i>73</i>&nbsp;            throws IOException {
+<i>74</i>&nbsp;
+<b class="nc"><i>75</i>&nbsp;        Request request = chain.request();</b>
+<i>76</i>&nbsp;
+<i>77</i>&nbsp;        // If the request already have an authorization (eg. Basic auth), do nothing
+<b class="nc"><i>78</i>&nbsp;        if (request.header(&quot;Authorization&quot;) != null) {</b>
+<b class="nc"><i>79</i>&nbsp;            return chain.proceed(request);</b>
+<i>80</i>&nbsp;        }
+<i>81</i>&nbsp;
+<i>82</i>&nbsp;        // If first time, get the token
+<i>83</i>&nbsp;        OAuthClientRequest oAuthRequest;
+<b class="nc"><i>84</i>&nbsp;        if (getAccessToken() == null) {</b>
+<b class="nc"><i>85</i>&nbsp;            updateAccessToken(null);</b>
+<i>86</i>&nbsp;        }
+<i>87</i>&nbsp;
+<i>88</i>&nbsp;        // Build the request
+<b class="nc"><i>89</i>&nbsp;        Builder rb = request.newBuilder();</b>
+<i>90</i>&nbsp;
+<b class="nc"><i>91</i>&nbsp;        String requestAccessToken = new String(getAccessToken());</b>
+<i>92</i>&nbsp;        try {
+<b class="nc"><i>93</i>&nbsp;            oAuthRequest = new OAuthBearerClientRequest(request.url().toString())</b>
+<b class="nc"><i>94</i>&nbsp;                .setAccessToken(requestAccessToken)</b>
+<b class="nc"><i>95</i>&nbsp;                .buildHeaderMessage();</b>
+<b class="nc"><i>96</i>&nbsp;        } catch (OAuthSystemException e) {</b>
+<b class="nc"><i>97</i>&nbsp;            throw new IOException(e);</b>
+<b class="nc"><i>98</i>&nbsp;        }</b>
+<i>99</i>&nbsp;
+<b class="nc"><i>100</i>&nbsp;        for ( Map.Entry&lt;String, String&gt; header : oAuthRequest.getHeaders().entrySet() ) {</b>
+<b class="nc"><i>101</i>&nbsp;            rb.addHeader(header.getKey(), header.getValue());</b>
+<b class="nc"><i>102</i>&nbsp;        }</b>
+<b class="nc"><i>103</i>&nbsp;        rb.url( oAuthRequest.getLocationUri());</b>
+<i>104</i>&nbsp;
+<i>105</i>&nbsp;        //Execute the request
+<b class="nc"><i>106</i>&nbsp;        Response response = chain.proceed(rb.build());</b>
+<i>107</i>&nbsp;
+<i>108</i>&nbsp;        // 401 most likely indicates that access token has expired.
+<i>109</i>&nbsp;        // Time to refresh and resend the request
+<b class="nc"><i>110</i>&nbsp;        if ( response.code() == HTTP_UNAUTHORIZED ) {</b>
+<b class="nc"><i>111</i>&nbsp;            updateAccessToken(requestAccessToken);</b>
+<b class="nc"><i>112</i>&nbsp;            return intercept( chain );</b>
+<i>113</i>&nbsp;        }
+<b class="nc"><i>114</i>&nbsp;        return response;    </b>
+<i>115</i>&nbsp;    }
+<i>116</i>&nbsp;
+<i>117</i>&nbsp;    public synchronized void updateAccessToken(String requestAccessToken) throws IOException {
+<b class="nc"><i>118</i>&nbsp;        if (getAccessToken() == null || getAccessToken().equals(requestAccessToken)) {    </b>
+<i>119</i>&nbsp;            try {
+<b class="nc"><i>120</i>&nbsp;                OAuthJSONAccessTokenResponse accessTokenResponse = oauthClient.accessToken(this.tokenRequestBuilder.buildBodyMessage());</b>
+<b class="nc"><i>121</i>&nbsp;                setAccessToken(accessTokenResponse.getAccessToken());</b>
+<b class="nc"><i>122</i>&nbsp;                if (accessTokenListener != null) {</b>
+<b class="nc"><i>123</i>&nbsp;                    accessTokenListener.notify((BasicOAuthToken) accessTokenResponse.getOAuthToken());</b>
+<i>124</i>&nbsp;                }
+<b class="nc"><i>125</i>&nbsp;            } catch (OAuthSystemException e) {</b>
+<b class="nc"><i>126</i>&nbsp;                throw new IOException(e);</b>
+<b class="nc"><i>127</i>&nbsp;            } catch (OAuthProblemException e) {</b>
+<b class="nc"><i>128</i>&nbsp;                throw new IOException(e);</b>
+<b class="nc"><i>129</i>&nbsp;            }</b>
+<i>130</i>&nbsp;        }
+<i>131</i>&nbsp;    }
+<i>132</i>&nbsp;
+<i>133</i>&nbsp;    public void registerAccessTokenListener(AccessTokenListener accessTokenListener) {
+<b class="nc"><i>134</i>&nbsp;        this.accessTokenListener = accessTokenListener;</b>
+<i>135</i>&nbsp;    }
+<i>136</i>&nbsp;
+<i>137</i>&nbsp;    public synchronized String getAccessToken() {
+<b class="nc"><i>138</i>&nbsp;        return accessToken;</b>
+<i>139</i>&nbsp;    }
+<i>140</i>&nbsp;
+<i>141</i>&nbsp;    public synchronized void setAccessToken(String accessToken) {
+<b class="nc"><i>142</i>&nbsp;        this.accessToken = accessToken;</b>
+<i>143</i>&nbsp;    }
+<i>144</i>&nbsp;
+<i>145</i>&nbsp;    public TokenRequestBuilder getTokenRequestBuilder() {
+<b class="nc"><i>146</i>&nbsp;        return tokenRequestBuilder;</b>
+<i>147</i>&nbsp;    }
+<i>148</i>&nbsp;
+<i>149</i>&nbsp;    public void setTokenRequestBuilder(TokenRequestBuilder tokenRequestBuilder) {
+<b class="nc"><i>150</i>&nbsp;        this.tokenRequestBuilder = tokenRequestBuilder;</b>
+<i>151</i>&nbsp;    }
+<i>152</i>&nbsp;
+<i>153</i>&nbsp;    public AuthenticationRequestBuilder getAuthenticationRequestBuilder() {
+<b class="nc"><i>154</i>&nbsp;        return authenticationRequestBuilder;</b>
+<i>155</i>&nbsp;    }
+<i>156</i>&nbsp;
+<i>157</i>&nbsp;    public void setAuthenticationRequestBuilder(AuthenticationRequestBuilder authenticationRequestBuilder) {
+<b class="nc"><i>158</i>&nbsp;        this.authenticationRequestBuilder = authenticationRequestBuilder;</b>
+<i>159</i>&nbsp;    }
+<i>160</i>&nbsp;
+<i>161</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2018-05-24 13:51</div>
+</div>
+</body>
+</html>

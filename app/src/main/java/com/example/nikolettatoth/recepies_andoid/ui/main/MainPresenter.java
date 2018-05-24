@@ -55,7 +55,10 @@ public class MainPresenter extends Presenter<MainScreen> {
                         mealList.add(meals.getMeals().get(0));
                     }
                     List<MealModel> reducedMealList = saveMeals(mealList);
-                    screen.showMeals(reducedMealList);
+                    if(screen!=null){
+                        screen.showMeals(reducedMealList);
+                    }
+
                 }catch(IOException e){
                     e.printStackTrace();
                 }

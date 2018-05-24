@@ -93,9 +93,9 @@ public class MockAPI implements MealApi{
 
         final Meal finalMeal = meal1;
         final Meals meals = new Meals(){{
-           new ArrayList<Meal>(){{
+           setMeals(new ArrayList<Meal>(){{
              add(finalMeal);
-           }};
+           }});
         }};
         Call<Meals> call = new Call<Meals>() {
             @Override

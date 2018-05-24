@@ -1,0 +1,125 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: StringUtil</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.nikolettatoth.recepies_andoid.network</a> ]
+</div>
+
+<h1>Coverage Summary for Class: StringUtil (com.example.nikolettatoth.recepies_andoid.network)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">StringUtil</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 12)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.nikolettatoth.recepies_andoid.network;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;@javax.annotation.Generated(value = &quot;class io.swagger.codegen.languages.JavaClientCodegen&quot;, date = &quot;2018-04-20T18:35:13.658+02:00&quot;)
+<b class="nc"><i>4</i>&nbsp;public class StringUtil {</b>
+<i>5</i>&nbsp;  /**
+<i>6</i>&nbsp;   * Check if the given array contains the given value (with case-insensitive comparison).
+<i>7</i>&nbsp;   *
+<i>8</i>&nbsp;   * @param array The array
+<i>9</i>&nbsp;   * @param value The value to search
+<i>10</i>&nbsp;   * @return true if the array contains the value
+<i>11</i>&nbsp;   */
+<i>12</i>&nbsp;  public static boolean containsIgnoreCase(String[] array, String value) {
+<b class="nc"><i>13</i>&nbsp;    for (String str : array) {</b>
+<b class="nc"><i>14</i>&nbsp;      if (value == null &amp;&amp; str == null) return true;</b>
+<b class="nc"><i>15</i>&nbsp;      if (value != null &amp;&amp; value.equalsIgnoreCase(str)) return true;</b>
+<i>16</i>&nbsp;    }
+<b class="nc"><i>17</i>&nbsp;    return false;</b>
+<i>18</i>&nbsp;  }
+<i>19</i>&nbsp;
+<i>20</i>&nbsp;  /**
+<i>21</i>&nbsp;   * Join an array of strings with the given separator.
+<i>22</i>&nbsp;   * &lt;p&gt;
+<i>23</i>&nbsp;   * Note: This might be replaced by utility method from commons-lang or guava someday
+<i>24</i>&nbsp;   * if one of those libraries is added as dependency.
+<i>25</i>&nbsp;   * &lt;/p&gt;
+<i>26</i>&nbsp;   *
+<i>27</i>&nbsp;   * @param array     The array of strings
+<i>28</i>&nbsp;   * @param separator The separator
+<i>29</i>&nbsp;   * @return the resulting string
+<i>30</i>&nbsp;   */
+<i>31</i>&nbsp;  public static String join(String[] array, String separator) {
+<b class="nc"><i>32</i>&nbsp;    int len = array.length;</b>
+<b class="nc"><i>33</i>&nbsp;    if (len == 0) return &quot;&quot;;</b>
+<i>34</i>&nbsp;
+<b class="nc"><i>35</i>&nbsp;    StringBuilder out = new StringBuilder();</b>
+<b class="nc"><i>36</i>&nbsp;    out.append(array[0]);</b>
+<b class="nc"><i>37</i>&nbsp;    for (int i = 1; i &lt; len; i++) {</b>
+<b class="nc"><i>38</i>&nbsp;      out.append(separator).append(array[i]);</b>
+<i>39</i>&nbsp;    }
+<b class="nc"><i>40</i>&nbsp;    return out.toString();</b>
+<i>41</i>&nbsp;  }
+<i>42</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2018-05-24 13:51</div>
+</div>
+</body>
+</html>

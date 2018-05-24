@@ -1,0 +1,420 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: ApiClient</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.nikolettatoth.recepies_andoid.network</a> ]
+</div>
+
+<h1>Coverage Summary for Class: ApiClient (com.example.nikolettatoth.recepies_andoid.network)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ApiClient</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 23)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 90)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.nikolettatoth.recepies_andoid.network;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import java.io.IOException;
+<i>4</i>&nbsp;import java.lang.annotation.Annotation;
+<i>5</i>&nbsp;import java.lang.reflect.Type;
+<i>6</i>&nbsp;import java.util.Date;
+<i>7</i>&nbsp;import java.util.LinkedHashMap;
+<i>8</i>&nbsp;import java.util.Map;
+<i>9</i>&nbsp;
+<i>10</i>&nbsp;import org.apache.oltu.oauth2.client.request.OAuthClientRequest.AuthenticationRequestBuilder;
+<i>11</i>&nbsp;import org.apache.oltu.oauth2.client.request.OAuthClientRequest.TokenRequestBuilder;
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import retrofit2.Converter;
+<i>14</i>&nbsp;import retrofit2.Retrofit;
+<i>15</i>&nbsp;import retrofit2.GsonConverterFactory;
+<i>16</i>&nbsp;
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;import com.google.gson.Gson;
+<i>19</i>&nbsp;import com.google.gson.GsonBuilder;
+<i>20</i>&nbsp;import com.google.gson.JsonParseException;
+<i>21</i>&nbsp;import okhttp3.Interceptor;
+<i>22</i>&nbsp;import okhttp3.OkHttpClient;
+<i>23</i>&nbsp;import okhttp3.RequestBody;
+<i>24</i>&nbsp;import okhttp3.ResponseBody;
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;
+<i>27</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.network.auth.HttpBasicAuth;
+<i>28</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.network.auth.ApiKeyAuth;
+<i>29</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.network.auth.OAuth;
+<i>30</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.network.auth.OAuth.AccessTokenListener;
+<i>31</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.network.auth.OAuthFlow;
+<i>32</i>&nbsp;
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;public class ApiClient {
+<i>35</i>&nbsp;
+<i>36</i>&nbsp;    private Map&lt;String, Interceptor&gt; apiAuthorizations;
+<i>37</i>&nbsp;    private OkHttpClient okClient;
+<i>38</i>&nbsp;    private Retrofit.Builder adapterBuilder;
+<i>39</i>&nbsp;
+<b class="nc"><i>40</i>&nbsp;    public ApiClient() {</b>
+<b class="nc"><i>41</i>&nbsp;        apiAuthorizations = new LinkedHashMap&lt;String, Interceptor&gt;();</b>
+<b class="nc"><i>42</i>&nbsp;        createDefaultAdapter();</b>
+<i>43</i>&nbsp;    }
+<i>44</i>&nbsp;
+<i>45</i>&nbsp;    public ApiClient(String[] authNames) {
+<b class="nc"><i>46</i>&nbsp;        this();</b>
+<b class="nc"><i>47</i>&nbsp;        for(String authName : authNames) { </b>
+<b class="nc"><i>48</i>&nbsp;            throw new RuntimeException(&quot;auth name \&quot;&quot; + authName + &quot;\&quot; not found in available auth names&quot;);</b>
+<i>49</i>&nbsp;        }
+<i>50</i>&nbsp;    }
+<i>51</i>&nbsp;
+<i>52</i>&nbsp;    /**
+<i>53</i>&nbsp;     * Basic constructor for single auth name
+<i>54</i>&nbsp;     * @param authName
+<i>55</i>&nbsp;     */
+<i>56</i>&nbsp;    public ApiClient(String authName) {
+<b class="nc"><i>57</i>&nbsp;        this(new String[]{authName});</b>
+<i>58</i>&nbsp;    }
+<i>59</i>&nbsp;
+<i>60</i>&nbsp;    /**
+<i>61</i>&nbsp;     * Helper constructor for single api key
+<i>62</i>&nbsp;     * @param authName
+<i>63</i>&nbsp;     * @param apiKey
+<i>64</i>&nbsp;     */
+<i>65</i>&nbsp;    public ApiClient(String authName, String apiKey) {
+<b class="nc"><i>66</i>&nbsp;        this(authName);</b>
+<b class="nc"><i>67</i>&nbsp;        this.setApiKey(apiKey);</b>
+<i>68</i>&nbsp;    }
+<i>69</i>&nbsp;
+<i>70</i>&nbsp;    /**
+<i>71</i>&nbsp;     * Helper constructor for single basic auth or password oauth2
+<i>72</i>&nbsp;     * @param authName
+<i>73</i>&nbsp;     * @param username
+<i>74</i>&nbsp;     * @param password
+<i>75</i>&nbsp;     */
+<i>76</i>&nbsp;    public ApiClient(String authName, String username, String password) {
+<b class="nc"><i>77</i>&nbsp;        this(authName);</b>
+<b class="nc"><i>78</i>&nbsp;        this.setCredentials(username,  password);</b>
+<i>79</i>&nbsp;    }
+<i>80</i>&nbsp;
+<i>81</i>&nbsp;    /**
+<i>82</i>&nbsp;     * Helper constructor for single password oauth2
+<i>83</i>&nbsp;     * @param authName
+<i>84</i>&nbsp;     * @param clientId
+<i>85</i>&nbsp;     * @param secret
+<i>86</i>&nbsp;     * @param username
+<i>87</i>&nbsp;     * @param password
+<i>88</i>&nbsp;     */
+<i>89</i>&nbsp;    public ApiClient(String authName, String clientId, String secret, String username, String password) {
+<b class="nc"><i>90</i>&nbsp;        this(authName);</b>
+<b class="nc"><i>91</i>&nbsp;        this.getTokenEndPoint()</b>
+<b class="nc"><i>92</i>&nbsp;                .setClientId(clientId)</b>
+<b class="nc"><i>93</i>&nbsp;                .setClientSecret(secret)</b>
+<b class="nc"><i>94</i>&nbsp;                .setUsername(username)</b>
+<b class="nc"><i>95</i>&nbsp;                .setPassword(password);</b>
+<i>96</i>&nbsp;    }
+<i>97</i>&nbsp;    
+<i>98</i>&nbsp;   public void createDefaultAdapter() {
+<b class="nc"><i>99</i>&nbsp;        Gson gson = new GsonBuilder()</b>
+<b class="nc"><i>100</i>&nbsp;                .setDateFormat(&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ&quot;)</b>
+<b class="nc"><i>101</i>&nbsp;                .create();</b>
+<i>102</i>&nbsp;
+<b class="nc"><i>103</i>&nbsp;        okClient = new OkHttpClient();</b>
+<i>104</i>&nbsp;        
+<b class="nc"><i>105</i>&nbsp;        String baseUrl = &quot;https://www.themealdb.com/api/json/v1/1&quot;;</b>
+<b class="nc"><i>106</i>&nbsp;        if(!baseUrl.endsWith(&quot;/&quot;))</b>
+<b class="nc"><i>107</i>&nbsp;        	baseUrl = baseUrl + &quot;/&quot;;</b>
+<i>108</i>&nbsp;
+<b class="nc"><i>109</i>&nbsp;        adapterBuilder = new Retrofit</b>
+<i>110</i>&nbsp;                .Builder()
+<b class="nc"><i>111</i>&nbsp;                .baseUrl(baseUrl)</b>
+<b class="nc"><i>112</i>&nbsp;                .client(okClient)</b>
+<i>113</i>&nbsp;                
+<b class="nc"><i>114</i>&nbsp;                .addConverterFactory(GsonCustomConverterFactory.create(gson));</b>
+<i>115</i>&nbsp;    }
+<i>116</i>&nbsp;
+<i>117</i>&nbsp;    public &lt;S&gt; S createService(Class&lt;S&gt; serviceClass) {
+<b class="nc"><i>118</i>&nbsp;        return adapterBuilder.build().create(serviceClass);</b>
+<i>119</i>&nbsp;        
+<i>120</i>&nbsp;    }
+<i>121</i>&nbsp;
+<i>122</i>&nbsp;    /**
+<i>123</i>&nbsp;     * Helper method to configure the first api key found
+<i>124</i>&nbsp;     * @param apiKey
+<i>125</i>&nbsp;     */
+<i>126</i>&nbsp;    private void setApiKey(String apiKey) {
+<b class="nc"><i>127</i>&nbsp;        for(Interceptor apiAuthorization : apiAuthorizations.values()) {</b>
+<b class="nc"><i>128</i>&nbsp;            if (apiAuthorization instanceof ApiKeyAuth) {</b>
+<b class="nc"><i>129</i>&nbsp;                ApiKeyAuth keyAuth = (ApiKeyAuth) apiAuthorization;</b>
+<b class="nc"><i>130</i>&nbsp;                keyAuth.setApiKey(apiKey);</b>
+<i>131</i>&nbsp;                return;
+<i>132</i>&nbsp;            }
+<b class="nc"><i>133</i>&nbsp;        }</b>
+<i>134</i>&nbsp;    }
+<i>135</i>&nbsp;
+<i>136</i>&nbsp;    /**
+<i>137</i>&nbsp;     * Helper method to configure the username/password for basic auth or password oauth
+<i>138</i>&nbsp;     * @param username
+<i>139</i>&nbsp;     * @param password
+<i>140</i>&nbsp;     */
+<i>141</i>&nbsp;    private void setCredentials(String username, String password) {
+<b class="nc"><i>142</i>&nbsp;        for(Interceptor apiAuthorization : apiAuthorizations.values()) {</b>
+<b class="nc"><i>143</i>&nbsp;            if (apiAuthorization instanceof HttpBasicAuth) {</b>
+<b class="nc"><i>144</i>&nbsp;                HttpBasicAuth basicAuth = (HttpBasicAuth) apiAuthorization;</b>
+<b class="nc"><i>145</i>&nbsp;                basicAuth.setCredentials(username, password);</b>
+<i>146</i>&nbsp;                return;
+<i>147</i>&nbsp;            }
+<b class="nc"><i>148</i>&nbsp;            if (apiAuthorization instanceof OAuth) {</b>
+<b class="nc"><i>149</i>&nbsp;                OAuth oauth = (OAuth) apiAuthorization;</b>
+<b class="nc"><i>150</i>&nbsp;                oauth.getTokenRequestBuilder().setUsername(username).setPassword(password);</b>
+<i>151</i>&nbsp;                return;
+<i>152</i>&nbsp;            }
+<b class="nc"><i>153</i>&nbsp;        }</b>
+<i>154</i>&nbsp;    }
+<i>155</i>&nbsp;
+<i>156</i>&nbsp;    /**
+<i>157</i>&nbsp;     * Helper method to configure the token endpoint of the first oauth found in the apiAuthorizations (there should be only one)
+<i>158</i>&nbsp;     * @return
+<i>159</i>&nbsp;     */
+<i>160</i>&nbsp;    public TokenRequestBuilder getTokenEndPoint() {
+<b class="nc"><i>161</i>&nbsp;        for(Interceptor apiAuthorization : apiAuthorizations.values()) {</b>
+<b class="nc"><i>162</i>&nbsp;            if (apiAuthorization instanceof OAuth) {</b>
+<b class="nc"><i>163</i>&nbsp;                OAuth oauth = (OAuth) apiAuthorization;</b>
+<b class="nc"><i>164</i>&nbsp;                return oauth.getTokenRequestBuilder();</b>
+<i>165</i>&nbsp;            }
+<b class="nc"><i>166</i>&nbsp;        }</b>
+<b class="nc"><i>167</i>&nbsp;        return null;</b>
+<i>168</i>&nbsp;    }
+<i>169</i>&nbsp;
+<i>170</i>&nbsp;    /**
+<i>171</i>&nbsp;     * Helper method to configure authorization endpoint of the first oauth found in the apiAuthorizations (there should be only one)
+<i>172</i>&nbsp;     * @return
+<i>173</i>&nbsp;     */
+<i>174</i>&nbsp;    public AuthenticationRequestBuilder getAuthorizationEndPoint() {
+<b class="nc"><i>175</i>&nbsp;        for(Interceptor apiAuthorization : apiAuthorizations.values()) {</b>
+<b class="nc"><i>176</i>&nbsp;            if (apiAuthorization instanceof OAuth) {</b>
+<b class="nc"><i>177</i>&nbsp;                OAuth oauth = (OAuth) apiAuthorization;</b>
+<b class="nc"><i>178</i>&nbsp;                return oauth.getAuthenticationRequestBuilder();</b>
+<i>179</i>&nbsp;            }
+<b class="nc"><i>180</i>&nbsp;        }</b>
+<b class="nc"><i>181</i>&nbsp;        return null;</b>
+<i>182</i>&nbsp;    }
+<i>183</i>&nbsp;
+<i>184</i>&nbsp;    /**
+<i>185</i>&nbsp;     * Helper method to pre-set the oauth access token of the first oauth found in the apiAuthorizations (there should be only one)
+<i>186</i>&nbsp;     * @param accessToken
+<i>187</i>&nbsp;     */
+<i>188</i>&nbsp;    public void setAccessToken(String accessToken) {
+<b class="nc"><i>189</i>&nbsp;        for(Interceptor apiAuthorization : apiAuthorizations.values()) {</b>
+<b class="nc"><i>190</i>&nbsp;            if (apiAuthorization instanceof OAuth) {</b>
+<b class="nc"><i>191</i>&nbsp;                OAuth oauth = (OAuth) apiAuthorization;</b>
+<b class="nc"><i>192</i>&nbsp;                oauth.setAccessToken(accessToken);</b>
+<i>193</i>&nbsp;                return;
+<i>194</i>&nbsp;            }
+<b class="nc"><i>195</i>&nbsp;        }</b>
+<i>196</i>&nbsp;    }
+<i>197</i>&nbsp;    
+<i>198</i>&nbsp;    /**
+<i>199</i>&nbsp;     * Helper method to configure the oauth accessCode/implicit flow parameters
+<i>200</i>&nbsp;     * @param clientId
+<i>201</i>&nbsp;     * @param clientSecret
+<i>202</i>&nbsp;     * @param redirectURI
+<i>203</i>&nbsp;     */
+<i>204</i>&nbsp;    public void configureAuthorizationFlow(String clientId, String clientSecret, String redirectURI) {
+<b class="nc"><i>205</i>&nbsp;        for(Interceptor apiAuthorization : apiAuthorizations.values()) {</b>
+<b class="nc"><i>206</i>&nbsp;            if (apiAuthorization instanceof OAuth) {</b>
+<b class="nc"><i>207</i>&nbsp;                OAuth oauth = (OAuth) apiAuthorization;</b>
+<b class="nc"><i>208</i>&nbsp;                oauth.getTokenRequestBuilder()</b>
+<b class="nc"><i>209</i>&nbsp;                        .setClientId(clientId)</b>
+<b class="nc"><i>210</i>&nbsp;                        .setClientSecret(clientSecret)</b>
+<b class="nc"><i>211</i>&nbsp;                        .setRedirectURI(redirectURI);</b>
+<b class="nc"><i>212</i>&nbsp;                oauth.getAuthenticationRequestBuilder()</b>
+<b class="nc"><i>213</i>&nbsp;                        .setClientId(clientId)</b>
+<b class="nc"><i>214</i>&nbsp;                        .setRedirectURI(redirectURI);</b>
+<i>215</i>&nbsp;                return;
+<i>216</i>&nbsp;            }
+<b class="nc"><i>217</i>&nbsp;        }</b>
+<i>218</i>&nbsp;    }
+<i>219</i>&nbsp;    
+<i>220</i>&nbsp;    /**
+<i>221</i>&nbsp;     * Configures a listener which is notified when a new access token is received.
+<i>222</i>&nbsp;     * @param accessTokenListener
+<i>223</i>&nbsp;     */
+<i>224</i>&nbsp;    public void registerAccessTokenListener(AccessTokenListener accessTokenListener) {
+<b class="nc"><i>225</i>&nbsp;        for(Interceptor apiAuthorization : apiAuthorizations.values()) {</b>
+<b class="nc"><i>226</i>&nbsp;            if (apiAuthorization instanceof OAuth) {</b>
+<b class="nc"><i>227</i>&nbsp;                OAuth oauth = (OAuth) apiAuthorization;</b>
+<b class="nc"><i>228</i>&nbsp;                oauth.registerAccessTokenListener(accessTokenListener);</b>
+<i>229</i>&nbsp;                return;
+<i>230</i>&nbsp;            }
+<b class="nc"><i>231</i>&nbsp;        }</b>
+<i>232</i>&nbsp;    }
+<i>233</i>&nbsp;
+<i>234</i>&nbsp;    /**
+<i>235</i>&nbsp;     * Adds an authorization to be used by the client
+<i>236</i>&nbsp;     * @param authName
+<i>237</i>&nbsp;     * @param authorization
+<i>238</i>&nbsp;     */
+<i>239</i>&nbsp;    public void addAuthorization(String authName, Interceptor authorization) {
+<b class="nc"><i>240</i>&nbsp;        if (apiAuthorizations.containsKey(authName)) {</b>
+<b class="nc"><i>241</i>&nbsp;            throw new RuntimeException(&quot;auth name \&quot;&quot; + authName + &quot;\&quot; already in api authorizations&quot;);</b>
+<i>242</i>&nbsp;        }
+<b class="nc"><i>243</i>&nbsp;        apiAuthorizations.put(authName, authorization);</b>
+<b class="nc"><i>244</i>&nbsp;        okClient.interceptors().add(authorization);</b>
+<i>245</i>&nbsp;    }
+<i>246</i>&nbsp;
+<i>247</i>&nbsp;    public Map&lt;String, Interceptor&gt; getApiAuthorizations() {
+<b class="nc"><i>248</i>&nbsp;        return apiAuthorizations;</b>
+<i>249</i>&nbsp;    }
+<i>250</i>&nbsp;
+<i>251</i>&nbsp;    public void setApiAuthorizations(Map&lt;String, Interceptor&gt; apiAuthorizations) {
+<b class="nc"><i>252</i>&nbsp;        this.apiAuthorizations = apiAuthorizations;</b>
+<i>253</i>&nbsp;    }
+<i>254</i>&nbsp;
+<i>255</i>&nbsp;    public Retrofit.Builder getAdapterBuilder() {
+<b class="nc"><i>256</i>&nbsp;        return adapterBuilder;</b>
+<i>257</i>&nbsp;    }
+<i>258</i>&nbsp;
+<i>259</i>&nbsp;    public void setAdapterBuilder(Retrofit.Builder adapterBuilder) {
+<b class="nc"><i>260</i>&nbsp;        this.adapterBuilder = adapterBuilder;</b>
+<i>261</i>&nbsp;    }
+<i>262</i>&nbsp;
+<i>263</i>&nbsp;    public OkHttpClient getOkClient() {
+<b class="nc"><i>264</i>&nbsp;        return okClient;</b>
+<i>265</i>&nbsp;    }
+<i>266</i>&nbsp;    
+<i>267</i>&nbsp;    public void addAuthsToOkClient(OkHttpClient okClient) {
+<b class="nc"><i>268</i>&nbsp;        for(Interceptor apiAuthorization : apiAuthorizations.values()) {</b>
+<b class="nc"><i>269</i>&nbsp;            okClient.interceptors().add(apiAuthorization);</b>
+<b class="nc"><i>270</i>&nbsp;        }</b>
+<i>271</i>&nbsp;    }
+<i>272</i>&nbsp;
+<i>273</i>&nbsp;    /**
+<i>274</i>&nbsp;     * Clones the okClient given in parameter, adds the auth interceptors and uses it to configure the Retrofit
+<i>275</i>&nbsp;     * @param okClient
+<i>276</i>&nbsp;     */
+<i>277</i>&nbsp;    public void configureFromOkclient(OkHttpClient okClient) {
+<b class="nc"><i>278</i>&nbsp;        OkHttpClient clone = okClient.newBuilder().build();</b>
+<b class="nc"><i>279</i>&nbsp;        addAuthsToOkClient(clone);</b>
+<b class="nc"><i>280</i>&nbsp;        adapterBuilder.client(clone);</b>
+<i>281</i>&nbsp;    }
+<i>282</i>&nbsp;}
+<i>283</i>&nbsp;
+<i>284</i>&nbsp;/**
+<i>285</i>&nbsp; * This wrapper is to take care of this case:
+<i>286</i>&nbsp; * when the deserialization fails due to JsonParseException and the
+<i>287</i>&nbsp; * expected type is String, then just return the body string.
+<i>288</i>&nbsp; */
+<i>289</i>&nbsp;class GsonResponseBodyConverterToString&lt;T&gt; implements Converter&lt;ResponseBody, T&gt; {
+<i>290</i>&nbsp;	  private final Gson gson;
+<i>291</i>&nbsp;	  private final Type type;
+<i>292</i>&nbsp;
+<i>293</i>&nbsp;	  GsonResponseBodyConverterToString(Gson gson, Type type) {
+<i>294</i>&nbsp;	    this.gson = gson;
+<i>295</i>&nbsp;	    this.type = type;
+<i>296</i>&nbsp;	  }
+<i>297</i>&nbsp;
+<i>298</i>&nbsp;	  @Override public T convert(ResponseBody value) throws IOException {
+<i>299</i>&nbsp;	    String returned = value.string();
+<i>300</i>&nbsp;	    try {
+<i>301</i>&nbsp;	      return gson.fromJson(returned, type);
+<i>302</i>&nbsp;	    } 
+<i>303</i>&nbsp;	    catch (JsonParseException e) {
+<i>304</i>&nbsp;                return (T) returned;
+<i>305</i>&nbsp;        } 
+<i>306</i>&nbsp;	 }
+<i>307</i>&nbsp;}
+<i>308</i>&nbsp;
+<i>309</i>&nbsp;class GsonCustomConverterFactory extends Converter.Factory 
+<i>310</i>&nbsp;{
+<i>311</i>&nbsp;	public static GsonCustomConverterFactory create(Gson gson) {
+<i>312</i>&nbsp;	    return new GsonCustomConverterFactory(gson);
+<i>313</i>&nbsp;	  }
+<i>314</i>&nbsp;
+<i>315</i>&nbsp;	  private final Gson gson;
+<i>316</i>&nbsp;	  private final GsonConverterFactory gsonConverterFactory;
+<i>317</i>&nbsp;
+<i>318</i>&nbsp;	  private GsonCustomConverterFactory(Gson gson) {
+<i>319</i>&nbsp;	    if (gson == null) throw new NullPointerException(&quot;gson == null&quot;);
+<i>320</i>&nbsp;	    this.gson = gson;
+<i>321</i>&nbsp;	    this.gsonConverterFactory = GsonConverterFactory.create(gson);
+<i>322</i>&nbsp;	  }
+<i>323</i>&nbsp;
+<i>324</i>&nbsp;    @Override
+<i>325</i>&nbsp;    public Converter&lt;ResponseBody, ?&gt; responseBodyConverter(Type type, Annotation[] annotations, Retrofit retrofit) {
+<i>326</i>&nbsp;        if(type.equals(String.class))
+<i>327</i>&nbsp;            return new GsonResponseBodyConverterToString&lt;Object&gt;(gson, type);
+<i>328</i>&nbsp;        else
+<i>329</i>&nbsp;            return gsonConverterFactory.responseBodyConverter(type, annotations, retrofit);
+<i>330</i>&nbsp;    }
+<i>331</i>&nbsp;
+<i>332</i>&nbsp;    @Override
+<i>333</i>&nbsp;    public Converter&lt;?, RequestBody&gt; requestBodyConverter(Type type, Annotation[] annotations, Retrofit retrofit) {
+<i>334</i>&nbsp;            return gsonConverterFactory.requestBodyConverter(type, annotations, retrofit);
+<i>335</i>&nbsp;    }
+<i>336</i>&nbsp;}
+<i>337</i>&nbsp;
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2018-05-24 13:51</div>
+</div>
+</body>
+</html>

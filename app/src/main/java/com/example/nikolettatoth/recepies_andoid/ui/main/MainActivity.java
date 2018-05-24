@@ -1,12 +1,12 @@
 package com.example.nikolettatoth.recepies_andoid.ui.main;
 
-import com.crashlytics.android.Crashlytics;
+//import com.crashlytics.android.Crashlytics;
 import com.example.nikolettatoth.recepies_andoid.R;
 import com.example.nikolettatoth.recepies_andoid.RecepiesApplication;
 import com.example.nikolettatoth.recepies_andoid.model.MealModel;
 import com.example.nikolettatoth.recepies_andoid.ui.detail.DetailActivity;
 import com.example.nikolettatoth.recepies_andoid.ui.main.adapter.ListAdapter;
-import com.google.firebase.analytics.FirebaseAnalytics;
+//import com.google.firebase.analytics.FirebaseAnalytics;
 
 
 import android.content.Intent;
@@ -31,7 +31,7 @@ import javax.inject.Inject;
 
 public class MainActivity extends AppCompatActivity implements MainScreen, SwipeRefreshLayout.OnRefreshListener, ListAdapter.ClickListener {
 
-    private FirebaseAnalytics mFirebaseAnalytics;
+ //   private FirebaseAnalytics mFirebaseAnalytics;
 
     @Inject
     MainPresenter mainPresenter;
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements MainScreen, Swipe
         swipeRefreshLayout = findViewById(R.id.swipeRefresh);
         swipeRefreshLayout.setOnRefreshListener(this);
         // Obtain the FirebaseAnalytics instance.
-        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        // mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
     }
 
@@ -110,12 +110,12 @@ public class MainActivity extends AppCompatActivity implements MainScreen, Swipe
         i.putExtra("id", mealitem.getId());
         i.putExtra("name", mealitem.getName());
         startActivity(i);
-
+/*
         Bundle bundle = new Bundle();
         bundle.putString(FirebaseAnalytics.Param.ITEM_ID, Long.toString(mealitem.getId()));
         bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, mealitem.getName());
         bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "Get details");
-        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);*/
     }
 
 }

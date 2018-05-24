@@ -1,0 +1,63 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: TestComponent</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.nikolettatoth.mock</a> ]
+</div>
+
+<h1>Coverage Summary for Class: TestComponent (com.example.nikolettatoth.mock)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">TestComponent</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.nikolettatoth.mock;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.example.nikolettatoth.mock.di.MockAPIModule;
+<i>4</i>&nbsp;import com.example.nikolettatoth.mock.di.MockDBModule;
+<i>5</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.RecepiesApplicationComponent;
+<i>6</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.interactor.InteractorModule;
+<i>7</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.UIModule;
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;import javax.inject.Singleton;
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;import dagger.Component;
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;@Singleton
+<i>14</i>&nbsp;@Component(modules = {MockDBModule.class, MockAPIModule.class, UIModule.class, InteractorModule.class})
+<i>15</i>&nbsp;public interface TestComponent extends RecepiesApplicationComponent {
+<i>16</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2018-05-24 13:51</div>
+</div>
+</body>
+</html>

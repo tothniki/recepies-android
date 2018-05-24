@@ -14,7 +14,7 @@ import android.widget.TextView;
 import com.example.nikolettatoth.recepies_andoid.R;
 import com.example.nikolettatoth.recepies_andoid.RecepiesApplication;
 import com.example.nikolettatoth.recepies_andoid.model.MealModel;
-import com.google.firebase.analytics.FirebaseAnalytics;
+//import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.io.InputStream;
 import java.util.List;
@@ -24,7 +24,7 @@ import javax.inject.Inject;
 import static java.lang.String.join;
 
 public class DetailActivity extends AppCompatActivity implements DetailScreen{
-    private FirebaseAnalytics mFirebaseAnalytics;
+    // private FirebaseAnalytics mFirebaseAnalytics;
     @Inject
     DetailPresenter detailPresenter;
 
@@ -39,7 +39,7 @@ public class DetailActivity extends AppCompatActivity implements DetailScreen{
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Obtain the FirebaseAnalytics instance.
-        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        // mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         RecepiesApplication application = (RecepiesApplication) getApplication();
 

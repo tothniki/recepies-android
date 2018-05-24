@@ -1,0 +1,85 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: RecepiesApplicationComponent</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.nikolettatoth.recepies_andoid</a> ]
+</div>
+
+<h1>Coverage Summary for Class: RecepiesApplicationComponent (com.example.nikolettatoth.recepies_andoid)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">RecepiesApplicationComponent</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.nikolettatoth.recepies_andoid;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.database.RepositoryModule;
+<i>4</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.interactor.InteractorModule;
+<i>5</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.interactor.recepies.RecepiesInteractor;
+<i>6</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.interactor.recepies.RepositoryInteractor;
+<i>7</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.network.NetworkModul;
+<i>8</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.UIModule;
+<i>9</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.detail.DetailActivity;
+<i>10</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.detail.DetailPresenter;
+<i>11</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.main.MainActivity;
+<i>12</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.main.MainPresenter;
+<i>13</i>&nbsp;
+<i>14</i>&nbsp;import javax.inject.Singleton;
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;import dagger.Component;
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;@Singleton
+<i>19</i>&nbsp;@Component(modules = {UIModule.class,
+<i>20</i>&nbsp;        InteractorModule.class, NetworkModul.class, RepositoryModule.class})
+<i>21</i>&nbsp;public interface RecepiesApplicationComponent {
+<i>22</i>&nbsp;
+<i>23</i>&nbsp;    void inject(MainActivity mainActivity);
+<i>24</i>&nbsp;    void inject(MainPresenter mainPresenter);
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;    void inject(DetailActivity detailActivity);
+<i>27</i>&nbsp;    void inject(DetailPresenter detailPresenter);
+<i>28</i>&nbsp;
+<i>29</i>&nbsp;    void inject(RecepiesInteractor recepiesInteractor);
+<i>30</i>&nbsp;    void inject(RepositoryInteractor repositoryInteractor);
+<i>31</i>&nbsp;
+<i>32</i>&nbsp;    //void inject(RecepiesApplication recepiesApplication);
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;
+<i>35</i>&nbsp;
+<i>36</i>&nbsp;    }
+<i>37</i>&nbsp;
+<i>38</i>&nbsp;
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2018-05-24 13:51</div>
+</div>
+</body>
+</html>

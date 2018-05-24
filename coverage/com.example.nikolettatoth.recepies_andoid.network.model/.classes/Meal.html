@@ -1,0 +1,939 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Meal</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.nikolettatoth.recepies_andoid.network.model</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Meal (com.example.nikolettatoth.recepies_andoid.network.model)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Meal</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    48,6%
+  </span>
+  <span class="absValue">
+    (51/ 105)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    34,1%
+  </span>
+  <span class="absValue">
+    (107/ 314)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.nikolettatoth.recepies_andoid.network.model;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import java.util.Objects;
+<i>4</i>&nbsp;import io.swagger.annotations.ApiModel;
+<i>5</i>&nbsp;import io.swagger.annotations.ApiModelProperty;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;import com.google.gson.annotations.SerializedName;
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;
+<i>10</i>&nbsp;/**
+<i>11</i>&nbsp; * Based on the API, if you want to get a meal by id,
+<i>12</i>&nbsp; * the get method return a meals[] array with 1 element, a Meal
+<i>13</i>&nbsp; **/
+<i>14</i>&nbsp;
+<i>15</i>&nbsp;@ApiModel(description = &quot;&quot;)
+<b class="fc"><i>16</i>&nbsp;public class Meal   {</b>
+<i>17</i>&nbsp;  
+<b class="fc"><i>18</i>&nbsp;  @SerializedName(&quot;idMeal&quot;)</b>
+<i>19</i>&nbsp;  private String idMeal = null;
+<i>20</i>&nbsp;  
+<b class="fc"><i>21</i>&nbsp;  @SerializedName(&quot;strMeal&quot;)</b>
+<i>22</i>&nbsp;  private String strMeal = null;
+<i>23</i>&nbsp;  
+<b class="fc"><i>24</i>&nbsp;  @SerializedName(&quot;strCategory&quot;)</b>
+<i>25</i>&nbsp;  private String strCategory = null;
+<i>26</i>&nbsp;  
+<b class="fc"><i>27</i>&nbsp;  @SerializedName(&quot;strArea&quot;)</b>
+<i>28</i>&nbsp;  private String strArea = null;
+<i>29</i>&nbsp;  
+<b class="fc"><i>30</i>&nbsp;  @SerializedName(&quot;strInstructions&quot;)</b>
+<i>31</i>&nbsp;  private String strInstructions = null;
+<i>32</i>&nbsp;  
+<b class="fc"><i>33</i>&nbsp;  @SerializedName(&quot;strMealThumb&quot;)</b>
+<i>34</i>&nbsp;  private String strMealThumb = null;
+<i>35</i>&nbsp;  
+<b class="fc"><i>36</i>&nbsp;  @SerializedName(&quot;strTags&quot;)</b>
+<i>37</i>&nbsp;  private String strTags = null;
+<i>38</i>&nbsp;  
+<b class="fc"><i>39</i>&nbsp;  @SerializedName(&quot;strYoutube&quot;)</b>
+<i>40</i>&nbsp;  private String strYoutube = null;
+<i>41</i>&nbsp;  
+<b class="fc"><i>42</i>&nbsp;  @SerializedName(&quot;strIngredient1&quot;)</b>
+<i>43</i>&nbsp;  private String strIngredient1 = null;
+<i>44</i>&nbsp;  
+<b class="fc"><i>45</i>&nbsp;  @SerializedName(&quot;strIngredient2&quot;)</b>
+<i>46</i>&nbsp;  private String strIngredient2 = null;
+<i>47</i>&nbsp;  
+<b class="fc"><i>48</i>&nbsp;  @SerializedName(&quot;strIngredient3&quot;)</b>
+<i>49</i>&nbsp;  private String strIngredient3 = null;
+<i>50</i>&nbsp;  
+<b class="fc"><i>51</i>&nbsp;  @SerializedName(&quot;strIngredient4&quot;)</b>
+<i>52</i>&nbsp;  private String strIngredient4 = null;
+<i>53</i>&nbsp;  
+<b class="fc"><i>54</i>&nbsp;  @SerializedName(&quot;strIngredient5&quot;)</b>
+<i>55</i>&nbsp;  private String strIngredient5 = null;
+<i>56</i>&nbsp;  
+<b class="fc"><i>57</i>&nbsp;  @SerializedName(&quot;strIngredient6&quot;)</b>
+<i>58</i>&nbsp;  private String strIngredient6 = null;
+<i>59</i>&nbsp;  
+<b class="fc"><i>60</i>&nbsp;  @SerializedName(&quot;strIngredient7&quot;)</b>
+<i>61</i>&nbsp;  private String strIngredient7 = null;
+<i>62</i>&nbsp;  
+<b class="fc"><i>63</i>&nbsp;  @SerializedName(&quot;strIngredient8&quot;)</b>
+<i>64</i>&nbsp;  private String strIngredient8 = null;
+<i>65</i>&nbsp;  
+<b class="fc"><i>66</i>&nbsp;  @SerializedName(&quot;strIngredient9&quot;)</b>
+<i>67</i>&nbsp;  private String strIngredient9 = null;
+<i>68</i>&nbsp;  
+<b class="fc"><i>69</i>&nbsp;  @SerializedName(&quot;strIngredient10&quot;)</b>
+<i>70</i>&nbsp;  private String strIngredient10 = null;
+<i>71</i>&nbsp;  
+<b class="fc"><i>72</i>&nbsp;  @SerializedName(&quot;strIngredient11&quot;)</b>
+<i>73</i>&nbsp;  private String strIngredient11 = null;
+<i>74</i>&nbsp;  
+<b class="fc"><i>75</i>&nbsp;  @SerializedName(&quot;strIngredient12&quot;)</b>
+<i>76</i>&nbsp;  private String strIngredient12 = null;
+<i>77</i>&nbsp;  
+<b class="fc"><i>78</i>&nbsp;  @SerializedName(&quot;strIngredient13&quot;)</b>
+<i>79</i>&nbsp;  private String strIngredient13 = null;
+<i>80</i>&nbsp;  
+<b class="fc"><i>81</i>&nbsp;  @SerializedName(&quot;strIngredient14&quot;)</b>
+<i>82</i>&nbsp;  private String strIngredient14 = null;
+<i>83</i>&nbsp;  
+<b class="fc"><i>84</i>&nbsp;  @SerializedName(&quot;strIngredient15&quot;)</b>
+<i>85</i>&nbsp;  private String strIngredient15 = null;
+<i>86</i>&nbsp;  
+<b class="fc"><i>87</i>&nbsp;  @SerializedName(&quot;strIngredient16&quot;)</b>
+<i>88</i>&nbsp;  private String strIngredient16 = null;
+<i>89</i>&nbsp;  
+<b class="fc"><i>90</i>&nbsp;  @SerializedName(&quot;strIngredient17&quot;)</b>
+<i>91</i>&nbsp;  private String strIngredient17 = null;
+<i>92</i>&nbsp;  
+<b class="fc"><i>93</i>&nbsp;  @SerializedName(&quot;strIngredient18&quot;)</b>
+<i>94</i>&nbsp;  private String strIngredient18 = null;
+<i>95</i>&nbsp;  
+<b class="fc"><i>96</i>&nbsp;  @SerializedName(&quot;strIngredient19&quot;)</b>
+<i>97</i>&nbsp;  private String strIngredient19 = null;
+<i>98</i>&nbsp;  
+<b class="fc"><i>99</i>&nbsp;  @SerializedName(&quot;strIngredient20&quot;)</b>
+<i>100</i>&nbsp;  private String strIngredient20 = null;
+<i>101</i>&nbsp;  
+<b class="fc"><i>102</i>&nbsp;  @SerializedName(&quot;strMeasure1&quot;)</b>
+<i>103</i>&nbsp;  private String strMeasure1 = null;
+<i>104</i>&nbsp;  
+<b class="fc"><i>105</i>&nbsp;  @SerializedName(&quot;strMeasure2&quot;)</b>
+<i>106</i>&nbsp;  private String strMeasure2 = null;
+<i>107</i>&nbsp;  
+<b class="fc"><i>108</i>&nbsp;  @SerializedName(&quot;strMeasure3&quot;)</b>
+<i>109</i>&nbsp;  private String strMeasure3 = null;
+<i>110</i>&nbsp;  
+<b class="fc"><i>111</i>&nbsp;  @SerializedName(&quot;strMeasure4&quot;)</b>
+<i>112</i>&nbsp;  private String strMeasure4 = null;
+<i>113</i>&nbsp;  
+<b class="fc"><i>114</i>&nbsp;  @SerializedName(&quot;strMeasure5&quot;)</b>
+<i>115</i>&nbsp;  private String strMeasure5 = null;
+<i>116</i>&nbsp;  
+<b class="fc"><i>117</i>&nbsp;  @SerializedName(&quot;strMeasure6&quot;)</b>
+<i>118</i>&nbsp;  private String strMeasure6 = null;
+<i>119</i>&nbsp;  
+<b class="fc"><i>120</i>&nbsp;  @SerializedName(&quot;strMeasure7&quot;)</b>
+<i>121</i>&nbsp;  private String strMeasure7 = null;
+<i>122</i>&nbsp;  
+<b class="fc"><i>123</i>&nbsp;  @SerializedName(&quot;strMeasure8&quot;)</b>
+<i>124</i>&nbsp;  private String strMeasure8 = null;
+<i>125</i>&nbsp;  
+<b class="fc"><i>126</i>&nbsp;  @SerializedName(&quot;strMeasure9&quot;)</b>
+<i>127</i>&nbsp;  private String strMeasure9 = null;
+<i>128</i>&nbsp;  
+<b class="fc"><i>129</i>&nbsp;  @SerializedName(&quot;strMeasure10&quot;)</b>
+<i>130</i>&nbsp;  private String strMeasure10 = null;
+<i>131</i>&nbsp;  
+<b class="fc"><i>132</i>&nbsp;  @SerializedName(&quot;strMeasure11&quot;)</b>
+<i>133</i>&nbsp;  private String strMeasure11 = null;
+<i>134</i>&nbsp;  
+<b class="fc"><i>135</i>&nbsp;  @SerializedName(&quot;strMeasure12&quot;)</b>
+<i>136</i>&nbsp;  private String strMeasure12 = null;
+<i>137</i>&nbsp;  
+<b class="fc"><i>138</i>&nbsp;  @SerializedName(&quot;strMeasure13&quot;)</b>
+<i>139</i>&nbsp;  private String strMeasure13 = null;
+<i>140</i>&nbsp;  
+<b class="fc"><i>141</i>&nbsp;  @SerializedName(&quot;strMeasure14&quot;)</b>
+<i>142</i>&nbsp;  private String strMeasure14 = null;
+<i>143</i>&nbsp;  
+<b class="fc"><i>144</i>&nbsp;  @SerializedName(&quot;strMeasure15&quot;)</b>
+<i>145</i>&nbsp;  private String strMeasure15 = null;
+<i>146</i>&nbsp;  
+<b class="fc"><i>147</i>&nbsp;  @SerializedName(&quot;strMeasure16&quot;)</b>
+<i>148</i>&nbsp;  private String strMeasure16 = null;
+<i>149</i>&nbsp;  
+<b class="fc"><i>150</i>&nbsp;  @SerializedName(&quot;strMeasure17&quot;)</b>
+<i>151</i>&nbsp;  private String strMeasure17 = null;
+<i>152</i>&nbsp;  
+<b class="fc"><i>153</i>&nbsp;  @SerializedName(&quot;strMeasure18&quot;)</b>
+<i>154</i>&nbsp;  private String strMeasure18 = null;
+<i>155</i>&nbsp;  
+<b class="fc"><i>156</i>&nbsp;  @SerializedName(&quot;strMeasure19&quot;)</b>
+<i>157</i>&nbsp;  private String strMeasure19 = null;
+<i>158</i>&nbsp;  
+<b class="fc"><i>159</i>&nbsp;  @SerializedName(&quot;strMeasure20&quot;)</b>
+<i>160</i>&nbsp;  private String strMeasure20 = null;
+<i>161</i>&nbsp;  
+<b class="fc"><i>162</i>&nbsp;  @SerializedName(&quot;strSource&quot;)</b>
+<i>163</i>&nbsp;  private String strSource = null;
+<i>164</i>&nbsp;  
+<b class="fc"><i>165</i>&nbsp;  @SerializedName(&quot;dateModified&quot;)</b>
+<i>166</i>&nbsp;  private String dateModified = null;
+<i>167</i>&nbsp;  
+<i>168</i>&nbsp;
+<i>169</i>&nbsp;  
+<i>170</i>&nbsp;  /**
+<i>171</i>&nbsp;   **/
+<i>172</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>173</i>&nbsp;  public String getIdMeal() {
+<b class="fc"><i>174</i>&nbsp;    return idMeal;</b>
+<i>175</i>&nbsp;  }
+<i>176</i>&nbsp;  public void setIdMeal(String idMeal) {
+<b class="fc"><i>177</i>&nbsp;    this.idMeal = idMeal;</b>
+<b class="fc"><i>178</i>&nbsp;  }</b>
+<i>179</i>&nbsp;
+<i>180</i>&nbsp;  
+<i>181</i>&nbsp;  /**
+<i>182</i>&nbsp;   **/
+<i>183</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>184</i>&nbsp;  public String getStrMeal() {
+<b class="fc"><i>185</i>&nbsp;    return strMeal;</b>
+<i>186</i>&nbsp;  }
+<i>187</i>&nbsp;  public void setStrMeal(String strMeal) {
+<b class="fc"><i>188</i>&nbsp;    this.strMeal = strMeal;</b>
+<b class="fc"><i>189</i>&nbsp;  }</b>
+<i>190</i>&nbsp;
+<i>191</i>&nbsp;  
+<i>192</i>&nbsp;  /**
+<i>193</i>&nbsp;   **/
+<i>194</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>195</i>&nbsp;  public String getStrCategory() {
+<b class="nc"><i>196</i>&nbsp;    return strCategory;</b>
+<i>197</i>&nbsp;  }
+<i>198</i>&nbsp;  public void setStrCategory(String strCategory) {
+<b class="nc"><i>199</i>&nbsp;    this.strCategory = strCategory;</b>
+<b class="nc"><i>200</i>&nbsp;  }</b>
+<i>201</i>&nbsp;
+<i>202</i>&nbsp;  
+<i>203</i>&nbsp;  /**
+<i>204</i>&nbsp;   **/
+<i>205</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>206</i>&nbsp;  public String getStrArea() {
+<b class="nc"><i>207</i>&nbsp;    return strArea;</b>
+<i>208</i>&nbsp;  }
+<i>209</i>&nbsp;  public void setStrArea(String strArea) {
+<b class="nc"><i>210</i>&nbsp;    this.strArea = strArea;</b>
+<b class="nc"><i>211</i>&nbsp;  }</b>
+<i>212</i>&nbsp;
+<i>213</i>&nbsp;  
+<i>214</i>&nbsp;  /**
+<i>215</i>&nbsp;   **/
+<i>216</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>217</i>&nbsp;  public String getStrInstructions() {
+<b class="fc"><i>218</i>&nbsp;    return strInstructions;</b>
+<i>219</i>&nbsp;  }
+<i>220</i>&nbsp;  public void setStrInstructions(String strInstructions) {
+<b class="fc"><i>221</i>&nbsp;    this.strInstructions = strInstructions;</b>
+<b class="fc"><i>222</i>&nbsp;  }</b>
+<i>223</i>&nbsp;
+<i>224</i>&nbsp;  
+<i>225</i>&nbsp;  /**
+<i>226</i>&nbsp;   **/
+<i>227</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>228</i>&nbsp;  public String getStrMealThumb() {
+<b class="fc"><i>229</i>&nbsp;    return strMealThumb;</b>
+<i>230</i>&nbsp;  }
+<i>231</i>&nbsp;  public void setStrMealThumb(String strMealThumb) {
+<b class="fc"><i>232</i>&nbsp;    this.strMealThumb = strMealThumb;</b>
+<b class="fc"><i>233</i>&nbsp;  }</b>
+<i>234</i>&nbsp;
+<i>235</i>&nbsp;  
+<i>236</i>&nbsp;  /**
+<i>237</i>&nbsp;   **/
+<i>238</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>239</i>&nbsp;  public String getStrTags() {
+<b class="nc"><i>240</i>&nbsp;    return strTags;</b>
+<i>241</i>&nbsp;  }
+<i>242</i>&nbsp;  public void setStrTags(String strTags) {
+<b class="nc"><i>243</i>&nbsp;    this.strTags = strTags;</b>
+<b class="nc"><i>244</i>&nbsp;  }</b>
+<i>245</i>&nbsp;
+<i>246</i>&nbsp;  
+<i>247</i>&nbsp;  /**
+<i>248</i>&nbsp;   **/
+<i>249</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>250</i>&nbsp;  public String getStrYoutube() {
+<b class="nc"><i>251</i>&nbsp;    return strYoutube;</b>
+<i>252</i>&nbsp;  }
+<i>253</i>&nbsp;  public void setStrYoutube(String strYoutube) {
+<b class="nc"><i>254</i>&nbsp;    this.strYoutube = strYoutube;</b>
+<b class="nc"><i>255</i>&nbsp;  }</b>
+<i>256</i>&nbsp;
+<i>257</i>&nbsp;  
+<i>258</i>&nbsp;  /**
+<i>259</i>&nbsp;   **/
+<i>260</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>261</i>&nbsp;  public String getStrIngredient1() {
+<b class="fc"><i>262</i>&nbsp;    return strIngredient1;</b>
+<i>263</i>&nbsp;  }
+<i>264</i>&nbsp;  public void setStrIngredient1(String strIngredient1) {
+<b class="fc"><i>265</i>&nbsp;    this.strIngredient1 = strIngredient1;</b>
+<b class="fc"><i>266</i>&nbsp;  }</b>
+<i>267</i>&nbsp;
+<i>268</i>&nbsp;  
+<i>269</i>&nbsp;  /**
+<i>270</i>&nbsp;   **/
+<i>271</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>272</i>&nbsp;  public String getStrIngredient2() {
+<b class="fc"><i>273</i>&nbsp;    return strIngredient2;</b>
+<i>274</i>&nbsp;  }
+<i>275</i>&nbsp;  public void setStrIngredient2(String strIngredient2) {
+<b class="nc"><i>276</i>&nbsp;    this.strIngredient2 = strIngredient2;</b>
+<b class="nc"><i>277</i>&nbsp;  }</b>
+<i>278</i>&nbsp;
+<i>279</i>&nbsp;  
+<i>280</i>&nbsp;  /**
+<i>281</i>&nbsp;   **/
+<i>282</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>283</i>&nbsp;  public String getStrIngredient3() {
+<b class="fc"><i>284</i>&nbsp;    return strIngredient3;</b>
+<i>285</i>&nbsp;  }
+<i>286</i>&nbsp;  public void setStrIngredient3(String strIngredient3) {
+<b class="nc"><i>287</i>&nbsp;    this.strIngredient3 = strIngredient3;</b>
+<b class="nc"><i>288</i>&nbsp;  }</b>
+<i>289</i>&nbsp;
+<i>290</i>&nbsp;  
+<i>291</i>&nbsp;  /**
+<i>292</i>&nbsp;   **/
+<i>293</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>294</i>&nbsp;  public String getStrIngredient4() {
+<b class="fc"><i>295</i>&nbsp;    return strIngredient4;</b>
+<i>296</i>&nbsp;  }
+<i>297</i>&nbsp;  public void setStrIngredient4(String strIngredient4) {
+<b class="nc"><i>298</i>&nbsp;    this.strIngredient4 = strIngredient4;</b>
+<b class="nc"><i>299</i>&nbsp;  }</b>
+<i>300</i>&nbsp;
+<i>301</i>&nbsp;  
+<i>302</i>&nbsp;  /**
+<i>303</i>&nbsp;   **/
+<i>304</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>305</i>&nbsp;  public String getStrIngredient5() {
+<b class="fc"><i>306</i>&nbsp;    return strIngredient5;</b>
+<i>307</i>&nbsp;  }
+<i>308</i>&nbsp;  public void setStrIngredient5(String strIngredient5) {
+<b class="nc"><i>309</i>&nbsp;    this.strIngredient5 = strIngredient5;</b>
+<b class="nc"><i>310</i>&nbsp;  }</b>
+<i>311</i>&nbsp;
+<i>312</i>&nbsp;  
+<i>313</i>&nbsp;  /**
+<i>314</i>&nbsp;   **/
+<i>315</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>316</i>&nbsp;  public String getStrIngredient6() {
+<b class="fc"><i>317</i>&nbsp;    return strIngredient6;</b>
+<i>318</i>&nbsp;  }
+<i>319</i>&nbsp;  public void setStrIngredient6(String strIngredient6) {
+<b class="nc"><i>320</i>&nbsp;    this.strIngredient6 = strIngredient6;</b>
+<b class="nc"><i>321</i>&nbsp;  }</b>
+<i>322</i>&nbsp;
+<i>323</i>&nbsp;  
+<i>324</i>&nbsp;  /**
+<i>325</i>&nbsp;   **/
+<i>326</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>327</i>&nbsp;  public String getStrIngredient7() {
+<b class="fc"><i>328</i>&nbsp;    return strIngredient7;</b>
+<i>329</i>&nbsp;  }
+<i>330</i>&nbsp;  public void setStrIngredient7(String strIngredient7) {
+<b class="nc"><i>331</i>&nbsp;    this.strIngredient7 = strIngredient7;</b>
+<b class="nc"><i>332</i>&nbsp;  }</b>
+<i>333</i>&nbsp;
+<i>334</i>&nbsp;  
+<i>335</i>&nbsp;  /**
+<i>336</i>&nbsp;   **/
+<i>337</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>338</i>&nbsp;  public String getStrIngredient8() {
+<b class="fc"><i>339</i>&nbsp;    return strIngredient8;</b>
+<i>340</i>&nbsp;  }
+<i>341</i>&nbsp;  public void setStrIngredient8(String strIngredient8) {
+<b class="nc"><i>342</i>&nbsp;    this.strIngredient8 = strIngredient8;</b>
+<b class="nc"><i>343</i>&nbsp;  }</b>
+<i>344</i>&nbsp;
+<i>345</i>&nbsp;  
+<i>346</i>&nbsp;  /**
+<i>347</i>&nbsp;   **/
+<i>348</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>349</i>&nbsp;  public String getStrIngredient9() {
+<b class="fc"><i>350</i>&nbsp;    return strIngredient9;</b>
+<i>351</i>&nbsp;  }
+<i>352</i>&nbsp;  public void setStrIngredient9(String strIngredient9) {
+<b class="nc"><i>353</i>&nbsp;    this.strIngredient9 = strIngredient9;</b>
+<b class="nc"><i>354</i>&nbsp;  }</b>
+<i>355</i>&nbsp;
+<i>356</i>&nbsp;  
+<i>357</i>&nbsp;  /**
+<i>358</i>&nbsp;   **/
+<i>359</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>360</i>&nbsp;  public String getStrIngredient10() {
+<b class="fc"><i>361</i>&nbsp;    return strIngredient10;</b>
+<i>362</i>&nbsp;  }
+<i>363</i>&nbsp;  public void setStrIngredient10(String strIngredient10) {
+<b class="nc"><i>364</i>&nbsp;    this.strIngredient10 = strIngredient10;</b>
+<b class="nc"><i>365</i>&nbsp;  }</b>
+<i>366</i>&nbsp;
+<i>367</i>&nbsp;  
+<i>368</i>&nbsp;  /**
+<i>369</i>&nbsp;   **/
+<i>370</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>371</i>&nbsp;  public String getStrIngredient11() {
+<b class="fc"><i>372</i>&nbsp;    return strIngredient11;</b>
+<i>373</i>&nbsp;  }
+<i>374</i>&nbsp;  public void setStrIngredient11(String strIngredient11) {
+<b class="nc"><i>375</i>&nbsp;    this.strIngredient11 = strIngredient11;</b>
+<b class="nc"><i>376</i>&nbsp;  }</b>
+<i>377</i>&nbsp;
+<i>378</i>&nbsp;  
+<i>379</i>&nbsp;  /**
+<i>380</i>&nbsp;   **/
+<i>381</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>382</i>&nbsp;  public String getStrIngredient12() {
+<b class="fc"><i>383</i>&nbsp;    return strIngredient12;</b>
+<i>384</i>&nbsp;  }
+<i>385</i>&nbsp;  public void setStrIngredient12(String strIngredient12) {
+<b class="nc"><i>386</i>&nbsp;    this.strIngredient12 = strIngredient12;</b>
+<b class="nc"><i>387</i>&nbsp;  }</b>
+<i>388</i>&nbsp;
+<i>389</i>&nbsp;  
+<i>390</i>&nbsp;  /**
+<i>391</i>&nbsp;   **/
+<i>392</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>393</i>&nbsp;  public String getStrIngredient13() {
+<b class="fc"><i>394</i>&nbsp;    return strIngredient13;</b>
+<i>395</i>&nbsp;  }
+<i>396</i>&nbsp;  public void setStrIngredient13(String strIngredient13) {
+<b class="nc"><i>397</i>&nbsp;    this.strIngredient13 = strIngredient13;</b>
+<b class="nc"><i>398</i>&nbsp;  }</b>
+<i>399</i>&nbsp;
+<i>400</i>&nbsp;  
+<i>401</i>&nbsp;  /**
+<i>402</i>&nbsp;   **/
+<i>403</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>404</i>&nbsp;  public String getStrIngredient14() {
+<b class="fc"><i>405</i>&nbsp;    return strIngredient14;</b>
+<i>406</i>&nbsp;  }
+<i>407</i>&nbsp;  public void setStrIngredient14(String strIngredient14) {
+<b class="nc"><i>408</i>&nbsp;    this.strIngredient14 = strIngredient14;</b>
+<b class="nc"><i>409</i>&nbsp;  }</b>
+<i>410</i>&nbsp;
+<i>411</i>&nbsp;  
+<i>412</i>&nbsp;  /**
+<i>413</i>&nbsp;   **/
+<i>414</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>415</i>&nbsp;  public String getStrIngredient15() {
+<b class="fc"><i>416</i>&nbsp;    return strIngredient15;</b>
+<i>417</i>&nbsp;  }
+<i>418</i>&nbsp;  public void setStrIngredient15(String strIngredient15) {
+<b class="nc"><i>419</i>&nbsp;    this.strIngredient15 = strIngredient15;</b>
+<b class="nc"><i>420</i>&nbsp;  }</b>
+<i>421</i>&nbsp;
+<i>422</i>&nbsp;  
+<i>423</i>&nbsp;  /**
+<i>424</i>&nbsp;   **/
+<i>425</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>426</i>&nbsp;  public String getStrIngredient16() {
+<b class="fc"><i>427</i>&nbsp;    return strIngredient16;</b>
+<i>428</i>&nbsp;  }
+<i>429</i>&nbsp;  public void setStrIngredient16(String strIngredient16) {
+<b class="nc"><i>430</i>&nbsp;    this.strIngredient16 = strIngredient16;</b>
+<b class="nc"><i>431</i>&nbsp;  }</b>
+<i>432</i>&nbsp;
+<i>433</i>&nbsp;  
+<i>434</i>&nbsp;  /**
+<i>435</i>&nbsp;   **/
+<i>436</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>437</i>&nbsp;  public String getStrIngredient17() {
+<b class="fc"><i>438</i>&nbsp;    return strIngredient17;</b>
+<i>439</i>&nbsp;  }
+<i>440</i>&nbsp;  public void setStrIngredient17(String strIngredient17) {
+<b class="nc"><i>441</i>&nbsp;    this.strIngredient17 = strIngredient17;</b>
+<b class="nc"><i>442</i>&nbsp;  }</b>
+<i>443</i>&nbsp;
+<i>444</i>&nbsp;  
+<i>445</i>&nbsp;  /**
+<i>446</i>&nbsp;   **/
+<i>447</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>448</i>&nbsp;  public String getStrIngredient18() {
+<b class="fc"><i>449</i>&nbsp;    return strIngredient18;</b>
+<i>450</i>&nbsp;  }
+<i>451</i>&nbsp;  public void setStrIngredient18(String strIngredient18) {
+<b class="nc"><i>452</i>&nbsp;    this.strIngredient18 = strIngredient18;</b>
+<b class="nc"><i>453</i>&nbsp;  }</b>
+<i>454</i>&nbsp;
+<i>455</i>&nbsp;  
+<i>456</i>&nbsp;  /**
+<i>457</i>&nbsp;   **/
+<i>458</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>459</i>&nbsp;  public String getStrIngredient19() {
+<b class="fc"><i>460</i>&nbsp;    return strIngredient19;</b>
+<i>461</i>&nbsp;  }
+<i>462</i>&nbsp;  public void setStrIngredient19(String strIngredient19) {
+<b class="nc"><i>463</i>&nbsp;    this.strIngredient19 = strIngredient19;</b>
+<b class="nc"><i>464</i>&nbsp;  }</b>
+<i>465</i>&nbsp;
+<i>466</i>&nbsp;  
+<i>467</i>&nbsp;  /**
+<i>468</i>&nbsp;   **/
+<i>469</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>470</i>&nbsp;  public String getStrIngredient20() {
+<b class="fc"><i>471</i>&nbsp;    return strIngredient20;</b>
+<i>472</i>&nbsp;  }
+<i>473</i>&nbsp;  public void setStrIngredient20(String strIngredient20) {
+<b class="nc"><i>474</i>&nbsp;    this.strIngredient20 = strIngredient20;</b>
+<b class="nc"><i>475</i>&nbsp;  }</b>
+<i>476</i>&nbsp;
+<i>477</i>&nbsp;  
+<i>478</i>&nbsp;  /**
+<i>479</i>&nbsp;   **/
+<i>480</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>481</i>&nbsp;  public String getStrMeasure1() {
+<b class="fc"><i>482</i>&nbsp;    return strMeasure1;</b>
+<i>483</i>&nbsp;  }
+<i>484</i>&nbsp;  public void setStrMeasure1(String strMeasure1) {
+<b class="fc"><i>485</i>&nbsp;    this.strMeasure1 = strMeasure1;</b>
+<b class="fc"><i>486</i>&nbsp;  }</b>
+<i>487</i>&nbsp;
+<i>488</i>&nbsp;  
+<i>489</i>&nbsp;  /**
+<i>490</i>&nbsp;   **/
+<i>491</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>492</i>&nbsp;  public String getStrMeasure2() {
+<b class="fc"><i>493</i>&nbsp;    return strMeasure2;</b>
+<i>494</i>&nbsp;  }
+<i>495</i>&nbsp;  public void setStrMeasure2(String strMeasure2) {
+<b class="nc"><i>496</i>&nbsp;    this.strMeasure2 = strMeasure2;</b>
+<b class="nc"><i>497</i>&nbsp;  }</b>
+<i>498</i>&nbsp;
+<i>499</i>&nbsp;  
+<i>500</i>&nbsp;  /**
+<i>501</i>&nbsp;   **/
+<i>502</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>503</i>&nbsp;  public String getStrMeasure3() {
+<b class="fc"><i>504</i>&nbsp;    return strMeasure3;</b>
+<i>505</i>&nbsp;  }
+<i>506</i>&nbsp;  public void setStrMeasure3(String strMeasure3) {
+<b class="nc"><i>507</i>&nbsp;    this.strMeasure3 = strMeasure3;</b>
+<b class="nc"><i>508</i>&nbsp;  }</b>
+<i>509</i>&nbsp;
+<i>510</i>&nbsp;  
+<i>511</i>&nbsp;  /**
+<i>512</i>&nbsp;   **/
+<i>513</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>514</i>&nbsp;  public String getStrMeasure4() {
+<b class="fc"><i>515</i>&nbsp;    return strMeasure4;</b>
+<i>516</i>&nbsp;  }
+<i>517</i>&nbsp;  public void setStrMeasure4(String strMeasure4) {
+<b class="nc"><i>518</i>&nbsp;    this.strMeasure4 = strMeasure4;</b>
+<b class="nc"><i>519</i>&nbsp;  }</b>
+<i>520</i>&nbsp;
+<i>521</i>&nbsp;  
+<i>522</i>&nbsp;  /**
+<i>523</i>&nbsp;   **/
+<i>524</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>525</i>&nbsp;  public String getStrMeasure5() {
+<b class="fc"><i>526</i>&nbsp;    return strMeasure5;</b>
+<i>527</i>&nbsp;  }
+<i>528</i>&nbsp;  public void setStrMeasure5(String strMeasure5) {
+<b class="nc"><i>529</i>&nbsp;    this.strMeasure5 = strMeasure5;</b>
+<b class="nc"><i>530</i>&nbsp;  }</b>
+<i>531</i>&nbsp;
+<i>532</i>&nbsp;  
+<i>533</i>&nbsp;  /**
+<i>534</i>&nbsp;   **/
+<i>535</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>536</i>&nbsp;  public String getStrMeasure6() {
+<b class="fc"><i>537</i>&nbsp;    return strMeasure6;</b>
+<i>538</i>&nbsp;  }
+<i>539</i>&nbsp;  public void setStrMeasure6(String strMeasure6) {
+<b class="nc"><i>540</i>&nbsp;    this.strMeasure6 = strMeasure6;</b>
+<b class="nc"><i>541</i>&nbsp;  }</b>
+<i>542</i>&nbsp;
+<i>543</i>&nbsp;  
+<i>544</i>&nbsp;  /**
+<i>545</i>&nbsp;   **/
+<i>546</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>547</i>&nbsp;  public String getStrMeasure7() {
+<b class="fc"><i>548</i>&nbsp;    return strMeasure7;</b>
+<i>549</i>&nbsp;  }
+<i>550</i>&nbsp;  public void setStrMeasure7(String strMeasure7) {
+<b class="nc"><i>551</i>&nbsp;    this.strMeasure7 = strMeasure7;</b>
+<b class="nc"><i>552</i>&nbsp;  }</b>
+<i>553</i>&nbsp;
+<i>554</i>&nbsp;  
+<i>555</i>&nbsp;  /**
+<i>556</i>&nbsp;   **/
+<i>557</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>558</i>&nbsp;  public String getStrMeasure8() {
+<b class="fc"><i>559</i>&nbsp;    return strMeasure8;</b>
+<i>560</i>&nbsp;  }
+<i>561</i>&nbsp;  public void setStrMeasure8(String strMeasure8) {
+<b class="nc"><i>562</i>&nbsp;    this.strMeasure8 = strMeasure8;</b>
+<b class="nc"><i>563</i>&nbsp;  }</b>
+<i>564</i>&nbsp;
+<i>565</i>&nbsp;  
+<i>566</i>&nbsp;  /**
+<i>567</i>&nbsp;   **/
+<i>568</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>569</i>&nbsp;  public String getStrMeasure9() {
+<b class="fc"><i>570</i>&nbsp;    return strMeasure9;</b>
+<i>571</i>&nbsp;  }
+<i>572</i>&nbsp;  public void setStrMeasure9(String strMeasure9) {
+<b class="nc"><i>573</i>&nbsp;    this.strMeasure9 = strMeasure9;</b>
+<b class="nc"><i>574</i>&nbsp;  }</b>
+<i>575</i>&nbsp;
+<i>576</i>&nbsp;  
+<i>577</i>&nbsp;  /**
+<i>578</i>&nbsp;   **/
+<i>579</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>580</i>&nbsp;  public String getStrMeasure10() {
+<b class="fc"><i>581</i>&nbsp;    return strMeasure10;</b>
+<i>582</i>&nbsp;  }
+<i>583</i>&nbsp;  public void setStrMeasure10(String strMeasure10) {
+<b class="nc"><i>584</i>&nbsp;    this.strMeasure10 = strMeasure10;</b>
+<b class="nc"><i>585</i>&nbsp;  }</b>
+<i>586</i>&nbsp;
+<i>587</i>&nbsp;  
+<i>588</i>&nbsp;  /**
+<i>589</i>&nbsp;   **/
+<i>590</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>591</i>&nbsp;  public String getStrMeasure11() {
+<b class="fc"><i>592</i>&nbsp;    return strMeasure11;</b>
+<i>593</i>&nbsp;  }
+<i>594</i>&nbsp;  public void setStrMeasure11(String strMeasure11) {
+<b class="nc"><i>595</i>&nbsp;    this.strMeasure11 = strMeasure11;</b>
+<b class="nc"><i>596</i>&nbsp;  }</b>
+<i>597</i>&nbsp;
+<i>598</i>&nbsp;  
+<i>599</i>&nbsp;  /**
+<i>600</i>&nbsp;   **/
+<i>601</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>602</i>&nbsp;  public String getStrMeasure12() {
+<b class="fc"><i>603</i>&nbsp;    return strMeasure12;</b>
+<i>604</i>&nbsp;  }
+<i>605</i>&nbsp;  public void setStrMeasure12(String strMeasure12) {
+<b class="nc"><i>606</i>&nbsp;    this.strMeasure12 = strMeasure12;</b>
+<b class="nc"><i>607</i>&nbsp;  }</b>
+<i>608</i>&nbsp;
+<i>609</i>&nbsp;  
+<i>610</i>&nbsp;  /**
+<i>611</i>&nbsp;   **/
+<i>612</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>613</i>&nbsp;  public String getStrMeasure13() {
+<b class="fc"><i>614</i>&nbsp;    return strMeasure13;</b>
+<i>615</i>&nbsp;  }
+<i>616</i>&nbsp;  public void setStrMeasure13(String strMeasure13) {
+<b class="nc"><i>617</i>&nbsp;    this.strMeasure13 = strMeasure13;</b>
+<b class="nc"><i>618</i>&nbsp;  }</b>
+<i>619</i>&nbsp;
+<i>620</i>&nbsp;  
+<i>621</i>&nbsp;  /**
+<i>622</i>&nbsp;   **/
+<i>623</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>624</i>&nbsp;  public String getStrMeasure14() {
+<b class="fc"><i>625</i>&nbsp;    return strMeasure14;</b>
+<i>626</i>&nbsp;  }
+<i>627</i>&nbsp;  public void setStrMeasure14(String strMeasure14) {
+<b class="nc"><i>628</i>&nbsp;    this.strMeasure14 = strMeasure14;</b>
+<b class="nc"><i>629</i>&nbsp;  }</b>
+<i>630</i>&nbsp;
+<i>631</i>&nbsp;  
+<i>632</i>&nbsp;  /**
+<i>633</i>&nbsp;   **/
+<i>634</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>635</i>&nbsp;  public String getStrMeasure15() {
+<b class="fc"><i>636</i>&nbsp;    return strMeasure15;</b>
+<i>637</i>&nbsp;  }
+<i>638</i>&nbsp;  public void setStrMeasure15(String strMeasure15) {
+<b class="nc"><i>639</i>&nbsp;    this.strMeasure15 = strMeasure15;</b>
+<b class="nc"><i>640</i>&nbsp;  }</b>
+<i>641</i>&nbsp;
+<i>642</i>&nbsp;  
+<i>643</i>&nbsp;  /**
+<i>644</i>&nbsp;   **/
+<i>645</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>646</i>&nbsp;  public String getStrMeasure16() {
+<b class="fc"><i>647</i>&nbsp;    return strMeasure16;</b>
+<i>648</i>&nbsp;  }
+<i>649</i>&nbsp;  public void setStrMeasure16(String strMeasure16) {
+<b class="nc"><i>650</i>&nbsp;    this.strMeasure16 = strMeasure16;</b>
+<b class="nc"><i>651</i>&nbsp;  }</b>
+<i>652</i>&nbsp;
+<i>653</i>&nbsp;  
+<i>654</i>&nbsp;  /**
+<i>655</i>&nbsp;   **/
+<i>656</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>657</i>&nbsp;  public String getStrMeasure17() {
+<b class="fc"><i>658</i>&nbsp;    return strMeasure17;</b>
+<i>659</i>&nbsp;  }
+<i>660</i>&nbsp;  public void setStrMeasure17(String strMeasure17) {
+<b class="nc"><i>661</i>&nbsp;    this.strMeasure17 = strMeasure17;</b>
+<b class="nc"><i>662</i>&nbsp;  }</b>
+<i>663</i>&nbsp;
+<i>664</i>&nbsp;  
+<i>665</i>&nbsp;  /**
+<i>666</i>&nbsp;   **/
+<i>667</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>668</i>&nbsp;  public String getStrMeasure18() {
+<b class="fc"><i>669</i>&nbsp;    return strMeasure18;</b>
+<i>670</i>&nbsp;  }
+<i>671</i>&nbsp;  public void setStrMeasure18(String strMeasure18) {
+<b class="nc"><i>672</i>&nbsp;    this.strMeasure18 = strMeasure18;</b>
+<b class="nc"><i>673</i>&nbsp;  }</b>
+<i>674</i>&nbsp;
+<i>675</i>&nbsp;  
+<i>676</i>&nbsp;  /**
+<i>677</i>&nbsp;   **/
+<i>678</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>679</i>&nbsp;  public String getStrMeasure19() {
+<b class="fc"><i>680</i>&nbsp;    return strMeasure19;</b>
+<i>681</i>&nbsp;  }
+<i>682</i>&nbsp;  public void setStrMeasure19(String strMeasure19) {
+<b class="nc"><i>683</i>&nbsp;    this.strMeasure19 = strMeasure19;</b>
+<b class="nc"><i>684</i>&nbsp;  }</b>
+<i>685</i>&nbsp;
+<i>686</i>&nbsp;  
+<i>687</i>&nbsp;  /**
+<i>688</i>&nbsp;   **/
+<i>689</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>690</i>&nbsp;  public String getStrMeasure20() {
+<b class="fc"><i>691</i>&nbsp;    return strMeasure20;</b>
+<i>692</i>&nbsp;  }
+<i>693</i>&nbsp;  public void setStrMeasure20(String strMeasure20) {
+<b class="nc"><i>694</i>&nbsp;    this.strMeasure20 = strMeasure20;</b>
+<b class="nc"><i>695</i>&nbsp;  }</b>
+<i>696</i>&nbsp;
+<i>697</i>&nbsp;  
+<i>698</i>&nbsp;  /**
+<i>699</i>&nbsp;   **/
+<i>700</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>701</i>&nbsp;  public String getStrSource() {
+<b class="nc"><i>702</i>&nbsp;    return strSource;</b>
+<i>703</i>&nbsp;  }
+<i>704</i>&nbsp;  public void setStrSource(String strSource) {
+<b class="nc"><i>705</i>&nbsp;    this.strSource = strSource;</b>
+<b class="nc"><i>706</i>&nbsp;  }</b>
+<i>707</i>&nbsp;
+<i>708</i>&nbsp;  
+<i>709</i>&nbsp;  /**
+<i>710</i>&nbsp;   **/
+<i>711</i>&nbsp;  @ApiModelProperty(value = &quot;&quot;)
+<i>712</i>&nbsp;  public String getDateModified() {
+<b class="nc"><i>713</i>&nbsp;    return dateModified;</b>
+<i>714</i>&nbsp;  }
+<i>715</i>&nbsp;  public void setDateModified(String dateModified) {
+<b class="nc"><i>716</i>&nbsp;    this.dateModified = dateModified;</b>
+<b class="nc"><i>717</i>&nbsp;  }</b>
+<i>718</i>&nbsp;
+<i>719</i>&nbsp;  
+<i>720</i>&nbsp;
+<i>721</i>&nbsp;  @Override
+<i>722</i>&nbsp;  public boolean equals(Object o) {
+<b class="nc"><i>723</i>&nbsp;    if (this == o) {</b>
+<b class="nc"><i>724</i>&nbsp;      return true;</b>
+<i>725</i>&nbsp;    }
+<b class="nc"><i>726</i>&nbsp;    if (o == null || getClass() != o.getClass()) {</b>
+<b class="nc"><i>727</i>&nbsp;      return false;</b>
+<i>728</i>&nbsp;    }
+<b class="nc"><i>729</i>&nbsp;    Meal meal = (Meal) o;</b>
+<b class="nc"><i>730</i>&nbsp;    return Objects.equals(idMeal, meal.idMeal) &amp;&amp;</b>
+<b class="nc"><i>731</i>&nbsp;        Objects.equals(strMeal, meal.strMeal) &amp;&amp;</b>
+<b class="nc"><i>732</i>&nbsp;        Objects.equals(strCategory, meal.strCategory) &amp;&amp;</b>
+<b class="nc"><i>733</i>&nbsp;        Objects.equals(strArea, meal.strArea) &amp;&amp;</b>
+<b class="nc"><i>734</i>&nbsp;        Objects.equals(strInstructions, meal.strInstructions) &amp;&amp;</b>
+<b class="nc"><i>735</i>&nbsp;        Objects.equals(strMealThumb, meal.strMealThumb) &amp;&amp;</b>
+<b class="nc"><i>736</i>&nbsp;        Objects.equals(strTags, meal.strTags) &amp;&amp;</b>
+<b class="nc"><i>737</i>&nbsp;        Objects.equals(strYoutube, meal.strYoutube) &amp;&amp;</b>
+<b class="nc"><i>738</i>&nbsp;        Objects.equals(strIngredient1, meal.strIngredient1) &amp;&amp;</b>
+<b class="nc"><i>739</i>&nbsp;        Objects.equals(strIngredient2, meal.strIngredient2) &amp;&amp;</b>
+<b class="nc"><i>740</i>&nbsp;        Objects.equals(strIngredient3, meal.strIngredient3) &amp;&amp;</b>
+<b class="nc"><i>741</i>&nbsp;        Objects.equals(strIngredient4, meal.strIngredient4) &amp;&amp;</b>
+<b class="nc"><i>742</i>&nbsp;        Objects.equals(strIngredient5, meal.strIngredient5) &amp;&amp;</b>
+<b class="nc"><i>743</i>&nbsp;        Objects.equals(strIngredient6, meal.strIngredient6) &amp;&amp;</b>
+<b class="nc"><i>744</i>&nbsp;        Objects.equals(strIngredient7, meal.strIngredient7) &amp;&amp;</b>
+<b class="nc"><i>745</i>&nbsp;        Objects.equals(strIngredient8, meal.strIngredient8) &amp;&amp;</b>
+<b class="nc"><i>746</i>&nbsp;        Objects.equals(strIngredient9, meal.strIngredient9) &amp;&amp;</b>
+<b class="nc"><i>747</i>&nbsp;        Objects.equals(strIngredient10, meal.strIngredient10) &amp;&amp;</b>
+<b class="nc"><i>748</i>&nbsp;        Objects.equals(strIngredient11, meal.strIngredient11) &amp;&amp;</b>
+<b class="nc"><i>749</i>&nbsp;        Objects.equals(strIngredient12, meal.strIngredient12) &amp;&amp;</b>
+<b class="nc"><i>750</i>&nbsp;        Objects.equals(strIngredient13, meal.strIngredient13) &amp;&amp;</b>
+<b class="nc"><i>751</i>&nbsp;        Objects.equals(strIngredient14, meal.strIngredient14) &amp;&amp;</b>
+<b class="nc"><i>752</i>&nbsp;        Objects.equals(strIngredient15, meal.strIngredient15) &amp;&amp;</b>
+<b class="nc"><i>753</i>&nbsp;        Objects.equals(strIngredient16, meal.strIngredient16) &amp;&amp;</b>
+<b class="nc"><i>754</i>&nbsp;        Objects.equals(strIngredient17, meal.strIngredient17) &amp;&amp;</b>
+<b class="nc"><i>755</i>&nbsp;        Objects.equals(strIngredient18, meal.strIngredient18) &amp;&amp;</b>
+<b class="nc"><i>756</i>&nbsp;        Objects.equals(strIngredient19, meal.strIngredient19) &amp;&amp;</b>
+<b class="nc"><i>757</i>&nbsp;        Objects.equals(strIngredient20, meal.strIngredient20) &amp;&amp;</b>
+<b class="nc"><i>758</i>&nbsp;        Objects.equals(strMeasure1, meal.strMeasure1) &amp;&amp;</b>
+<b class="nc"><i>759</i>&nbsp;        Objects.equals(strMeasure2, meal.strMeasure2) &amp;&amp;</b>
+<b class="nc"><i>760</i>&nbsp;        Objects.equals(strMeasure3, meal.strMeasure3) &amp;&amp;</b>
+<b class="nc"><i>761</i>&nbsp;        Objects.equals(strMeasure4, meal.strMeasure4) &amp;&amp;</b>
+<b class="nc"><i>762</i>&nbsp;        Objects.equals(strMeasure5, meal.strMeasure5) &amp;&amp;</b>
+<b class="nc"><i>763</i>&nbsp;        Objects.equals(strMeasure6, meal.strMeasure6) &amp;&amp;</b>
+<b class="nc"><i>764</i>&nbsp;        Objects.equals(strMeasure7, meal.strMeasure7) &amp;&amp;</b>
+<b class="nc"><i>765</i>&nbsp;        Objects.equals(strMeasure8, meal.strMeasure8) &amp;&amp;</b>
+<b class="nc"><i>766</i>&nbsp;        Objects.equals(strMeasure9, meal.strMeasure9) &amp;&amp;</b>
+<b class="nc"><i>767</i>&nbsp;        Objects.equals(strMeasure10, meal.strMeasure10) &amp;&amp;</b>
+<b class="nc"><i>768</i>&nbsp;        Objects.equals(strMeasure11, meal.strMeasure11) &amp;&amp;</b>
+<b class="nc"><i>769</i>&nbsp;        Objects.equals(strMeasure12, meal.strMeasure12) &amp;&amp;</b>
+<b class="nc"><i>770</i>&nbsp;        Objects.equals(strMeasure13, meal.strMeasure13) &amp;&amp;</b>
+<b class="nc"><i>771</i>&nbsp;        Objects.equals(strMeasure14, meal.strMeasure14) &amp;&amp;</b>
+<b class="nc"><i>772</i>&nbsp;        Objects.equals(strMeasure15, meal.strMeasure15) &amp;&amp;</b>
+<b class="nc"><i>773</i>&nbsp;        Objects.equals(strMeasure16, meal.strMeasure16) &amp;&amp;</b>
+<b class="nc"><i>774</i>&nbsp;        Objects.equals(strMeasure17, meal.strMeasure17) &amp;&amp;</b>
+<b class="nc"><i>775</i>&nbsp;        Objects.equals(strMeasure18, meal.strMeasure18) &amp;&amp;</b>
+<b class="nc"><i>776</i>&nbsp;        Objects.equals(strMeasure19, meal.strMeasure19) &amp;&amp;</b>
+<b class="nc"><i>777</i>&nbsp;        Objects.equals(strMeasure20, meal.strMeasure20) &amp;&amp;</b>
+<b class="nc"><i>778</i>&nbsp;        Objects.equals(strSource, meal.strSource) &amp;&amp;</b>
+<b class="nc"><i>779</i>&nbsp;        Objects.equals(dateModified, meal.dateModified);</b>
+<i>780</i>&nbsp;  }
+<i>781</i>&nbsp;
+<i>782</i>&nbsp;  @Override
+<i>783</i>&nbsp;  public int hashCode() {
+<b class="nc"><i>784</i>&nbsp;    return Objects.hash(idMeal, strMeal, strCategory, strArea, strInstructions, strMealThumb, strTags, strYoutube, strIngredient1, strIngredient2, strIngredient3, strIngredient4, strIngredient5, strIngredient6, strIngredient7, strIngredient8, strIngredient9, strIngredient10, strIngredient11, strIngredient12, strIngredient13, strIngredient14, strIngredient15, strIngredient16, strIngredient17, strIngredient18, strIngredient19, strIngredient20, strMeasure1, strMeasure2, strMeasure3, strMeasure4, strMeasure5, strMeasure6, strMeasure7, strMeasure8, strMeasure9, strMeasure10, strMeasure11, strMeasure12, strMeasure13, strMeasure14, strMeasure15, strMeasure16, strMeasure17, strMeasure18, strMeasure19, strMeasure20, strSource, dateModified);</b>
+<i>785</i>&nbsp;  }
+<i>786</i>&nbsp;
+<i>787</i>&nbsp;  @Override
+<i>788</i>&nbsp;  public String toString() {
+<b class="nc"><i>789</i>&nbsp;    StringBuilder sb = new StringBuilder();</b>
+<b class="nc"><i>790</i>&nbsp;    sb.append(&quot;class Meal {\n&quot;);</b>
+<i>791</i>&nbsp;    
+<b class="nc"><i>792</i>&nbsp;    sb.append(&quot;    idMeal: &quot;).append(toIndentedString(idMeal)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>793</i>&nbsp;    sb.append(&quot;    strMeal: &quot;).append(toIndentedString(strMeal)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>794</i>&nbsp;    sb.append(&quot;    strCategory: &quot;).append(toIndentedString(strCategory)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>795</i>&nbsp;    sb.append(&quot;    strArea: &quot;).append(toIndentedString(strArea)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>796</i>&nbsp;    sb.append(&quot;    strInstructions: &quot;).append(toIndentedString(strInstructions)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>797</i>&nbsp;    sb.append(&quot;    strMealThumb: &quot;).append(toIndentedString(strMealThumb)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>798</i>&nbsp;    sb.append(&quot;    strTags: &quot;).append(toIndentedString(strTags)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>799</i>&nbsp;    sb.append(&quot;    strYoutube: &quot;).append(toIndentedString(strYoutube)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>800</i>&nbsp;    sb.append(&quot;    strIngredient1: &quot;).append(toIndentedString(strIngredient1)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>801</i>&nbsp;    sb.append(&quot;    strIngredient2: &quot;).append(toIndentedString(strIngredient2)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>802</i>&nbsp;    sb.append(&quot;    strIngredient3: &quot;).append(toIndentedString(strIngredient3)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>803</i>&nbsp;    sb.append(&quot;    strIngredient4: &quot;).append(toIndentedString(strIngredient4)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>804</i>&nbsp;    sb.append(&quot;    strIngredient5: &quot;).append(toIndentedString(strIngredient5)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>805</i>&nbsp;    sb.append(&quot;    strIngredient6: &quot;).append(toIndentedString(strIngredient6)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>806</i>&nbsp;    sb.append(&quot;    strIngredient7: &quot;).append(toIndentedString(strIngredient7)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>807</i>&nbsp;    sb.append(&quot;    strIngredient8: &quot;).append(toIndentedString(strIngredient8)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>808</i>&nbsp;    sb.append(&quot;    strIngredient9: &quot;).append(toIndentedString(strIngredient9)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>809</i>&nbsp;    sb.append(&quot;    strIngredient10: &quot;).append(toIndentedString(strIngredient10)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>810</i>&nbsp;    sb.append(&quot;    strIngredient11: &quot;).append(toIndentedString(strIngredient11)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>811</i>&nbsp;    sb.append(&quot;    strIngredient12: &quot;).append(toIndentedString(strIngredient12)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>812</i>&nbsp;    sb.append(&quot;    strIngredient13: &quot;).append(toIndentedString(strIngredient13)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>813</i>&nbsp;    sb.append(&quot;    strIngredient14: &quot;).append(toIndentedString(strIngredient14)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>814</i>&nbsp;    sb.append(&quot;    strIngredient15: &quot;).append(toIndentedString(strIngredient15)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>815</i>&nbsp;    sb.append(&quot;    strIngredient16: &quot;).append(toIndentedString(strIngredient16)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>816</i>&nbsp;    sb.append(&quot;    strIngredient17: &quot;).append(toIndentedString(strIngredient17)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>817</i>&nbsp;    sb.append(&quot;    strIngredient18: &quot;).append(toIndentedString(strIngredient18)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>818</i>&nbsp;    sb.append(&quot;    strIngredient19: &quot;).append(toIndentedString(strIngredient19)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>819</i>&nbsp;    sb.append(&quot;    strIngredient20: &quot;).append(toIndentedString(strIngredient20)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>820</i>&nbsp;    sb.append(&quot;    strMeasure1: &quot;).append(toIndentedString(strMeasure1)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>821</i>&nbsp;    sb.append(&quot;    strMeasure2: &quot;).append(toIndentedString(strMeasure2)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>822</i>&nbsp;    sb.append(&quot;    strMeasure3: &quot;).append(toIndentedString(strMeasure3)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>823</i>&nbsp;    sb.append(&quot;    strMeasure4: &quot;).append(toIndentedString(strMeasure4)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>824</i>&nbsp;    sb.append(&quot;    strMeasure5: &quot;).append(toIndentedString(strMeasure5)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>825</i>&nbsp;    sb.append(&quot;    strMeasure6: &quot;).append(toIndentedString(strMeasure6)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>826</i>&nbsp;    sb.append(&quot;    strMeasure7: &quot;).append(toIndentedString(strMeasure7)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>827</i>&nbsp;    sb.append(&quot;    strMeasure8: &quot;).append(toIndentedString(strMeasure8)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>828</i>&nbsp;    sb.append(&quot;    strMeasure9: &quot;).append(toIndentedString(strMeasure9)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>829</i>&nbsp;    sb.append(&quot;    strMeasure10: &quot;).append(toIndentedString(strMeasure10)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>830</i>&nbsp;    sb.append(&quot;    strMeasure11: &quot;).append(toIndentedString(strMeasure11)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>831</i>&nbsp;    sb.append(&quot;    strMeasure12: &quot;).append(toIndentedString(strMeasure12)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>832</i>&nbsp;    sb.append(&quot;    strMeasure13: &quot;).append(toIndentedString(strMeasure13)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>833</i>&nbsp;    sb.append(&quot;    strMeasure14: &quot;).append(toIndentedString(strMeasure14)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>834</i>&nbsp;    sb.append(&quot;    strMeasure15: &quot;).append(toIndentedString(strMeasure15)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>835</i>&nbsp;    sb.append(&quot;    strMeasure16: &quot;).append(toIndentedString(strMeasure16)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>836</i>&nbsp;    sb.append(&quot;    strMeasure17: &quot;).append(toIndentedString(strMeasure17)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>837</i>&nbsp;    sb.append(&quot;    strMeasure18: &quot;).append(toIndentedString(strMeasure18)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>838</i>&nbsp;    sb.append(&quot;    strMeasure19: &quot;).append(toIndentedString(strMeasure19)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>839</i>&nbsp;    sb.append(&quot;    strMeasure20: &quot;).append(toIndentedString(strMeasure20)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>840</i>&nbsp;    sb.append(&quot;    strSource: &quot;).append(toIndentedString(strSource)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>841</i>&nbsp;    sb.append(&quot;    dateModified: &quot;).append(toIndentedString(dateModified)).append(&quot;\n&quot;);</b>
+<b class="nc"><i>842</i>&nbsp;    sb.append(&quot;}&quot;);</b>
+<b class="nc"><i>843</i>&nbsp;    return sb.toString();</b>
+<i>844</i>&nbsp;  }
+<i>845</i>&nbsp;
+<i>846</i>&nbsp;  /**
+<i>847</i>&nbsp;   * Convert the given object to string with each line indented by 4 spaces
+<i>848</i>&nbsp;   * (except the first line).
+<i>849</i>&nbsp;   */
+<i>850</i>&nbsp;  private String toIndentedString(Object o) {
+<b class="nc"><i>851</i>&nbsp;    if (o == null) {</b>
+<b class="nc"><i>852</i>&nbsp;      return &quot;null&quot;;</b>
+<i>853</i>&nbsp;    }
+<b class="nc"><i>854</i>&nbsp;    return o.toString().replace(&quot;\n&quot;, &quot;\n    &quot;);</b>
+<i>855</i>&nbsp;  }
+<i>856</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2018-05-24 13:51</div>
+</div>
+</body>
+</html>

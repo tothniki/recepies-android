@@ -1,0 +1,80 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Repository</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.nikolettatoth.recepies_andoid.database</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Repository (com.example.nikolettatoth.recepies_andoid.database)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">Repository</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.nikolettatoth.recepies_andoid.database;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import android.content.Context;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.model.MealModel;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;import java.util.List;
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;import dagger.Module;
+<i>10</i>&nbsp;import dagger.Provides;
+<i>11</i>&nbsp;
+<i>12</i>&nbsp;public interface Repository {
+<i>13</i>&nbsp;
+<i>14</i>&nbsp;    void open(Context context);
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;    void close();
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;    List&lt;MealModel&gt; getAllMeals();
+<i>19</i>&nbsp;
+<i>20</i>&nbsp;    MealModel getMealById(long id);
+<i>21</i>&nbsp;
+<i>22</i>&nbsp;    void saveMeal(MealModel meal);
+<i>23</i>&nbsp;
+<i>24</i>&nbsp;    void saveAllMeals (List&lt;MealModel&gt; meals);
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;    void updateMeals(List&lt;MealModel&gt; newMeals);
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;    void removeMeal(MealModel meal);
+<i>29</i>&nbsp;
+<i>30</i>&nbsp;    void removeAll();
+<i>31</i>&nbsp;
+<i>32</i>&nbsp;    boolean isInDB(MealModel meal);
+<i>33</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2018-05-24 13:51</div>
+</div>
+</body>
+</html>
