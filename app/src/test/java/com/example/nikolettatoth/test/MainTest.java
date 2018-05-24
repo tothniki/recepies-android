@@ -53,6 +53,18 @@ public class MainTest {
         assertEquals((Long) 1L, meals.get(0).getId());
     }
 
+    @Test public void loadMealsFromRepo() throws InterruptedException {
+        mainPresenter.loadMealsFromRepo();
+        latch.await(200, TimeUnit.MILLISECONDS);
+        ArgumentCaptor<List> capture = ArgumentCaptor.forClass(List.class);
+        verify(mainScreen).showMeals(capture.capture());
+
+        assertEquals(2,capture.getValue().size());
+        List<MealModel>meals = capture.getValue();
+        assertEquals("ingr", meals.get(0).getIngredients());
+
+    }
+
     @After
     public void After() {
        mainPresenter.detachScreen();
