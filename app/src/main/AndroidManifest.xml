@@ -35,14 +35,7 @@
             android:name="DOMAIN_PACKAGE_NAME"
             android:value="com.example.nikolettatoth.recepies_andoid" />
 
-        <activity
-            android:name=".ui.proba"
-            android:label="@string/title_activity_proba"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".ui.proba2"
-            android:label="@string/title_activity_proba2"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".ui.create.CreateActivity"></activity>
     </application>
 
 </manifest>

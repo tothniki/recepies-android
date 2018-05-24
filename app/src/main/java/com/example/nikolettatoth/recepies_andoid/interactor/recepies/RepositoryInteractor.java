@@ -20,6 +20,8 @@ public class RepositoryInteractor {
         return repository.getAllMeals();
     };
 
+    public MealModel getMealById(final long id){return repository.getMealById(id);};
+
     public void saveMeal(MealModel meal){
         repository.saveMeal(meal);
     };

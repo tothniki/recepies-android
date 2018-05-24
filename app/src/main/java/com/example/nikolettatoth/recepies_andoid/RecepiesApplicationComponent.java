@@ -6,6 +6,8 @@ import com.example.nikolettatoth.recepies_andoid.interactor.recepies.RecepiesInt
 import com.example.nikolettatoth.recepies_andoid.interactor.recepies.RepositoryInteractor;
 import com.example.nikolettatoth.recepies_andoid.network.NetworkModul;
 import com.example.nikolettatoth.recepies_andoid.ui.UIModule;
+import com.example.nikolettatoth.recepies_andoid.ui.create.CreateActivity;
+import com.example.nikolettatoth.recepies_andoid.ui.create.CreatePresenter;
 import com.example.nikolettatoth.recepies_andoid.ui.detail.DetailActivity;
 import com.example.nikolettatoth.recepies_andoid.ui.detail.DetailPresenter;
 import com.example.nikolettatoth.recepies_andoid.ui.main.MainActivity;
@@ -28,6 +30,9 @@ public interface RecepiesApplicationComponent {
 
     void inject(RecepiesInteractor recepiesInteractor);
     void inject(RepositoryInteractor repositoryInteractor);
+
+    void inject(CreateActivity createActivity);
+    void inject(CreatePresenter createPresenter);
 
     //void inject(RecepiesApplication recepiesApplication);
 

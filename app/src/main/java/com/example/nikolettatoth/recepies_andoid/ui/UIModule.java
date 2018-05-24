@@ -2,6 +2,7 @@ package com.example.nikolettatoth.recepies_andoid.ui;
 
 import android.content.Context;
 
+import com.example.nikolettatoth.recepies_andoid.ui.create.CreatePresenter;
 import com.example.nikolettatoth.recepies_andoid.ui.detail.DetailPresenter;
 import com.example.nikolettatoth.recepies_andoid.ui.main.MainPresenter;
 
@@ -37,6 +38,10 @@ public class UIModule {
     public DetailPresenter provideDetailPresenter() {
         return new DetailPresenter();
     }
+
+    @Provides
+    @Singleton
+    public CreatePresenter provideCreatePresenter(){ return new CreatePresenter();}
 
     @Provides
     @Singleton

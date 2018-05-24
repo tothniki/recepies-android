@@ -3,6 +3,7 @@ package com.example.nikolettatoth.recepies_andoid.ui.detail;
 import com.example.nikolettatoth.recepies_andoid.RecepiesApplication;
 import com.example.nikolettatoth.recepies_andoid.database.Repository;
 import com.example.nikolettatoth.recepies_andoid.interactor.recepies.RecepiesInteractor;
+import com.example.nikolettatoth.recepies_andoid.interactor.recepies.RepositoryInteractor;
 import com.example.nikolettatoth.recepies_andoid.model.MealModel;
 import com.example.nikolettatoth.recepies_andoid.ui.Presenter;
 
@@ -12,7 +13,7 @@ import javax.inject.Inject;
 
 public class DetailPresenter extends Presenter<DetailScreen> {
     @Inject
-    Repository repositoryInteractor;
+    RepositoryInteractor repositoryInteractor;
 
     @Inject
     Executor executor;

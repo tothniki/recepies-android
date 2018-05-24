@@ -4,27 +4,22 @@ package com.example.nikolettatoth.recepies_andoid.ui.main;
 import com.example.nikolettatoth.recepies_andoid.R;
 import com.example.nikolettatoth.recepies_andoid.RecepiesApplication;
 import com.example.nikolettatoth.recepies_andoid.model.MealModel;
+import com.example.nikolettatoth.recepies_andoid.ui.create.CreateActivity;
 import com.example.nikolettatoth.recepies_andoid.ui.detail.DetailActivity;
 import com.example.nikolettatoth.recepies_andoid.ui.main.adapter.ListAdapter;
 //import com.google.firebase.analytics.FirebaseAnalytics;
 
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -64,6 +59,15 @@ public class MainActivity extends AppCompatActivity implements MainScreen, Swipe
         // Obtain the FirebaseAnalytics instance.
         // mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.createFab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), CreateActivity.class);
+                startActivity(i);
+                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+            }
+        });
     }
 
     @Override
