@@ -1,0 +1,188 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: CreateTest</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.nikolettatoth.test</a> ]
+</div>
+
+<h1>Coverage Summary for Class: CreateTest (com.example.nikolettatoth.test)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CreateTest</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (18/ 18)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">CreateTest$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (7/ 7)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (5/ 5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (25/ 25)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.nikolettatoth.test;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.example.nikolettatoth.mock.db.MockDB;
+<i>4</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.BuildConfig;
+<i>5</i>&nbsp;import com.example.nikolettatoth.mock.TestHelper;
+<i>6</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.database.Repository;
+<i>7</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.interactor.recepies.RepositoryInteractor;
+<i>8</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.interactor.recepies.RepositoryInteractor_MembersInjector;
+<i>9</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.model.MealModel;
+<i>10</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.create.CreateActivity;
+<i>11</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.create.CreatePresenter;
+<i>12</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.create.CreateScreen;
+<i>13</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.main.MainActivity;
+<i>14</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.main.MainScreen;
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;import org.junit.After;
+<i>17</i>&nbsp;import org.junit.Before;
+<i>18</i>&nbsp;import org.junit.Test;
+<i>19</i>&nbsp;import org.junit.runner.RunWith;
+<i>20</i>&nbsp;import org.mockito.ArgumentCaptor;
+<i>21</i>&nbsp;import org.robolectric.RobolectricTestRunner;
+<i>22</i>&nbsp;import org.robolectric.annotation.Config;
+<i>23</i>&nbsp;
+<i>24</i>&nbsp;import java.util.List;
+<i>25</i>&nbsp;import java.util.concurrent.CountDownLatch;
+<i>26</i>&nbsp;import java.util.concurrent.TimeUnit;
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;import static org.mockito.Mockito.mock;
+<i>29</i>&nbsp;import static org.mockito.Mockito.verify;
+<i>30</i>&nbsp;import static junit.framework.Assert.assertEquals;
+<i>31</i>&nbsp;
+<i>32</i>&nbsp;@RunWith(RobolectricTestRunner.class)
+<i>33</i>&nbsp;@Config(constants = BuildConfig.class)
+<b class="fc"><i>34</i>&nbsp;public class CreateTest {</b>
+<i>35</i>&nbsp;    private CreatePresenter createPresenter;
+<i>36</i>&nbsp;    private CreateScreen createScreen;
+<i>37</i>&nbsp;    private CountDownLatch latch;
+<i>38</i>&nbsp;    private MealModel meal;
+<i>39</i>&nbsp;    private MockDB db;
+<i>40</i>&nbsp;    private RepositoryInteractor i;
+<i>41</i>&nbsp;
+<i>42</i>&nbsp;
+<i>43</i>&nbsp;    @Before
+<i>44</i>&nbsp;    public void Before() {
+<b class="fc"><i>45</i>&nbsp;        TestHelper.setTestInjector();</b>
+<b class="fc"><i>46</i>&nbsp;        createScreen = mock(CreateScreen.class);</b>
+<b class="fc"><i>47</i>&nbsp;        createPresenter = new CreatePresenter();</b>
+<b class="fc"><i>48</i>&nbsp;        createPresenter.attachScreen(createScreen);</b>
+<b class="fc"><i>49</i>&nbsp;        db = new MockDB();</b>
+<b class="fc"><i>50</i>&nbsp;        i = mock(RepositoryInteractor.class);</b>
+<i>51</i>&nbsp;
+<i>52</i>&nbsp;
+<i>53</i>&nbsp;
+<b class="fc"><i>54</i>&nbsp;        latch = new CountDownLatch(1);</b>
+<b class="fc"><i>55</i>&nbsp;        meal = new MealModel(){{</b>
+<b class="fc"><i>56</i>&nbsp;            setId(10);</b>
+<b class="fc"><i>57</i>&nbsp;            setName(&quot;a&quot;);</b>
+<b class="fc"><i>58</i>&nbsp;            setPicture(&quot;b&quot;);</b>
+<b class="fc"><i>59</i>&nbsp;            setInstructions(&quot;c&quot;);</b>
+<b class="fc"><i>60</i>&nbsp;            setIngredients(&quot;d&quot;);</b>
+<b class="fc"><i>61</i>&nbsp;        }};</b>
+<i>62</i>&nbsp;
+<b class="fc"><i>63</i>&nbsp;    }</b>
+<i>64</i>&nbsp;
+<i>65</i>&nbsp;    @Test
+<i>66</i>&nbsp;    public void saveMeal() throws InterruptedException {
+<b class="fc"><i>67</i>&nbsp;        createPresenter.saveMeal(meal);</b>
+<b class="fc"><i>68</i>&nbsp;        latch.await(200, TimeUnit.MILLISECONDS);</b>
+<b class="fc"><i>69</i>&nbsp;        ArgumentCaptor&lt;MealModel&gt; capture = ArgumentCaptor.forClass(MealModel.class);</b>
+<b class="fc"><i>70</i>&nbsp;        verify(createScreen).showMeal(capture.capture());</b>
+<i>71</i>&nbsp;
+<b class="fc"><i>72</i>&nbsp;        assertEquals((Long)10L,capture.getValue().getId());</b>
+<b class="fc"><i>73</i>&nbsp;    }</b>
+<i>74</i>&nbsp;
+<i>75</i>&nbsp;    @After
+<i>76</i>&nbsp;    public void After(){
+<b class="fc"><i>77</i>&nbsp;        createPresenter.detachScreen();</b>
+<b class="fc"><i>78</i>&nbsp;    }</b>
+<i>79</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2018-05-25 02:12</div>
+</div>
+</body>
+</html>

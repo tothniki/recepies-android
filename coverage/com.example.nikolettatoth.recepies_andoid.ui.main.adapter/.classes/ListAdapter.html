@@ -88,7 +88,7 @@
     0%
   </span>
   <span class="absValue">
-    (0/ 4)
+    (0/ 3)
   </span>
 </td>
   </tr>
@@ -107,7 +107,7 @@
     0%
   </span>
   <span class="absValue">
-    (0/ 20)
+    (0/ 19)
   </span>
 </td>
 </tr>
@@ -131,99 +131,96 @@
 <i>12</i>&nbsp;import android.view.LayoutInflater;
 <i>13</i>&nbsp;import android.view.View;
 <i>14</i>&nbsp;import android.view.ViewGroup;
-<i>15</i>&nbsp;import android.widget.ImageView;
-<i>16</i>&nbsp;import android.widget.TextView;
-<i>17</i>&nbsp;
-<i>18</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.R;
-<i>19</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.model.MealModel;
-<i>20</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.network.model.Meal;
+<i>15</i>&nbsp;import android.widget.TextView;
+<i>16</i>&nbsp;
+<i>17</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.R;
+<i>18</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.model.MealModel;
+<i>19</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.network.model.Meal;
+<i>20</i>&nbsp;
 <i>21</i>&nbsp;
-<i>22</i>&nbsp;
-<i>23</i>&nbsp;import java.io.IOException;
-<i>24</i>&nbsp;import java.io.InputStream;
-<i>25</i>&nbsp;import java.net.MalformedURLException;
-<i>26</i>&nbsp;import java.net.URL;
-<i>27</i>&nbsp;import java.util.ArrayList;
-<i>28</i>&nbsp;import java.util.List;
-<i>29</i>&nbsp;
-<b class="nc"><i>30</i>&nbsp;public class ListAdapter extends RecyclerView.Adapter&lt;ListAdapter.ViewHolder&gt; {</b>
-<i>31</i>&nbsp;
-<i>32</i>&nbsp;    private List&lt;MealModel&gt; meals ;
-<i>33</i>&nbsp;    private ClickListener  listener;
-<i>34</i>&nbsp;
-<b class="nc"><i>35</i>&nbsp;    public ListAdapter() {</b>
-<b class="nc"><i>36</i>&nbsp;        this.meals = new ArrayList&lt;&gt;();</b>
-<i>37</i>&nbsp;    }
-<i>38</i>&nbsp;
-<i>39</i>&nbsp;    @NonNull
-<i>40</i>&nbsp;    @Override
-<i>41</i>&nbsp;    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-<b class="nc"><i>42</i>&nbsp;        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item, parent, false);</b>
-<b class="nc"><i>43</i>&nbsp;        return new ViewHolder(v);</b>
-<i>44</i>&nbsp;    }
-<i>45</i>&nbsp;
-<i>46</i>&nbsp;    @Override
-<i>47</i>&nbsp;    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
-<b class="nc"><i>48</i>&nbsp;        MealModel meal = meals.get(position);</b>
-<b class="nc"><i>49</i>&nbsp;        holder.mealitem = meal;</b>
-<b class="nc"><i>50</i>&nbsp;        holder.textView.setText(meal.getName());</b>
-<i>51</i>&nbsp;
-<b class="nc"><i>52</i>&nbsp;        holder.view.setOnClickListener(new View.OnClickListener() {</b>
-<i>53</i>&nbsp;            @Override
-<i>54</i>&nbsp;            public void onClick(View view) {
-<b class="nc"><i>55</i>&nbsp;                if (null != listener) {</b>
-<i>56</i>&nbsp;                    // Notify the active callbacks interface (the activity, if the
-<i>57</i>&nbsp;                    // fragment is attached to one) that an item has been selected.
-<b class="nc"><i>58</i>&nbsp;                    listener.onClick(holder.mealitem);</b>
-<i>59</i>&nbsp;                }
-<i>60</i>&nbsp;            }
-<i>61</i>&nbsp;        });
-<i>62</i>&nbsp;
-<i>63</i>&nbsp;    }
-<i>64</i>&nbsp;
-<i>65</i>&nbsp;    @Override
-<i>66</i>&nbsp;    public int getItemCount() {
-<b class="nc"><i>67</i>&nbsp;        return meals.size();</b>
-<i>68</i>&nbsp;    }
-<i>69</i>&nbsp;
-<i>70</i>&nbsp;    public static class ViewHolder extends RecyclerView.ViewHolder{
-<i>71</i>&nbsp;
-<i>72</i>&nbsp;        public TextView textView;
-<i>73</i>&nbsp;        public ImageView imageView;
-<i>74</i>&nbsp;        public MealModel mealitem;
-<i>75</i>&nbsp;        public View view;
-<i>76</i>&nbsp;
-<i>77</i>&nbsp;
-<i>78</i>&nbsp;        public ViewHolder(View itemView) {
-<b class="nc"><i>79</i>&nbsp;            super(itemView);</b>
-<b class="nc"><i>80</i>&nbsp;            view = itemView;</b>
-<b class="nc"><i>81</i>&nbsp;            textView = (TextView)itemView.findViewById(R.id.recipe_title);</b>
-<b class="nc"><i>82</i>&nbsp;            imageView = (ImageView) itemView.findViewById(R.id.recipe_img);</b>
-<i>83</i>&nbsp;        }
-<i>84</i>&nbsp;
-<i>85</i>&nbsp;    }
-<i>86</i>&nbsp;
-<i>87</i>&nbsp;    public void setListener(ClickListener listener) {
-<b class="nc"><i>88</i>&nbsp;        this.listener = listener;</b>
-<i>89</i>&nbsp;    }
-<i>90</i>&nbsp;
-<i>91</i>&nbsp;    public void setRepository(List&lt;MealModel&gt; meals) {
-<b class="nc"><i>92</i>&nbsp;        this.meals = meals;</b>
-<b class="nc"><i>93</i>&nbsp;        this.notifyDataSetChanged();</b>
-<i>94</i>&nbsp;    }
-<i>95</i>&nbsp;
-<i>96</i>&nbsp;    public interface ClickListener {
-<i>97</i>&nbsp;        void onClick(MealModel item);
-<i>98</i>&nbsp;    }
-<i>99</i>&nbsp;}
-<i>100</i>&nbsp;
-<i>101</i>&nbsp;
+<i>22</i>&nbsp;import java.io.IOException;
+<i>23</i>&nbsp;import java.io.InputStream;
+<i>24</i>&nbsp;import java.net.MalformedURLException;
+<i>25</i>&nbsp;import java.net.URL;
+<i>26</i>&nbsp;import java.util.ArrayList;
+<i>27</i>&nbsp;import java.util.List;
+<i>28</i>&nbsp;
+<b class="nc"><i>29</i>&nbsp;public class ListAdapter extends RecyclerView.Adapter&lt;ListAdapter.ViewHolder&gt; {</b>
+<i>30</i>&nbsp;
+<i>31</i>&nbsp;    private List&lt;MealModel&gt; meals ;
+<i>32</i>&nbsp;    private ClickListener  listener;
+<i>33</i>&nbsp;
+<b class="nc"><i>34</i>&nbsp;    public ListAdapter() {</b>
+<b class="nc"><i>35</i>&nbsp;        this.meals = new ArrayList&lt;&gt;();</b>
+<i>36</i>&nbsp;    }
+<i>37</i>&nbsp;
+<i>38</i>&nbsp;    @NonNull
+<i>39</i>&nbsp;    @Override
+<i>40</i>&nbsp;    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+<b class="nc"><i>41</i>&nbsp;        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item, parent, false);</b>
+<b class="nc"><i>42</i>&nbsp;        return new ViewHolder(v);</b>
+<i>43</i>&nbsp;    }
+<i>44</i>&nbsp;
+<i>45</i>&nbsp;    @Override
+<i>46</i>&nbsp;    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
+<b class="nc"><i>47</i>&nbsp;        MealModel meal = meals.get(position);</b>
+<b class="nc"><i>48</i>&nbsp;        holder.mealitem = meal;</b>
+<b class="nc"><i>49</i>&nbsp;        holder.textView.setText(meal.getName());</b>
+<i>50</i>&nbsp;
+<b class="nc"><i>51</i>&nbsp;        holder.view.setOnClickListener(new View.OnClickListener() {</b>
+<i>52</i>&nbsp;            @Override
+<i>53</i>&nbsp;            public void onClick(View view) {
+<b class="nc"><i>54</i>&nbsp;                if (null != listener) {</b>
+<i>55</i>&nbsp;                    // Notify the active callbacks interface (the activity, if the
+<i>56</i>&nbsp;                    // fragment is attached to one) that an item has been selected.
+<b class="nc"><i>57</i>&nbsp;                    listener.onClick(holder.mealitem);</b>
+<i>58</i>&nbsp;                }
+<i>59</i>&nbsp;            }
+<i>60</i>&nbsp;        });
+<i>61</i>&nbsp;
+<i>62</i>&nbsp;    }
+<i>63</i>&nbsp;
+<i>64</i>&nbsp;    @Override
+<i>65</i>&nbsp;    public int getItemCount() {
+<b class="nc"><i>66</i>&nbsp;        return meals.size();</b>
+<i>67</i>&nbsp;    }
+<i>68</i>&nbsp;
+<i>69</i>&nbsp;    public static class ViewHolder extends RecyclerView.ViewHolder{
+<i>70</i>&nbsp;
+<i>71</i>&nbsp;        public TextView textView;
+<i>72</i>&nbsp;        public MealModel mealitem;
+<i>73</i>&nbsp;        public View view;
+<i>74</i>&nbsp;
+<i>75</i>&nbsp;
+<i>76</i>&nbsp;        public ViewHolder(View itemView) {
+<b class="nc"><i>77</i>&nbsp;            super(itemView);</b>
+<b class="nc"><i>78</i>&nbsp;            view = itemView;</b>
+<b class="nc"><i>79</i>&nbsp;            textView = (TextView)itemView.findViewById(R.id.recipe_title);</b>
+<i>80</i>&nbsp;        }
+<i>81</i>&nbsp;
+<i>82</i>&nbsp;    }
+<i>83</i>&nbsp;
+<i>84</i>&nbsp;    public void setListener(ClickListener listener) {
+<b class="nc"><i>85</i>&nbsp;        this.listener = listener;</b>
+<i>86</i>&nbsp;    }
+<i>87</i>&nbsp;
+<i>88</i>&nbsp;    public void setRepository(List&lt;MealModel&gt; meals) {
+<b class="nc"><i>89</i>&nbsp;        this.meals = meals;</b>
+<b class="nc"><i>90</i>&nbsp;        this.notifyDataSetChanged();</b>
+<i>91</i>&nbsp;    }
+<i>92</i>&nbsp;
+<i>93</i>&nbsp;    public interface ClickListener {
+<i>94</i>&nbsp;        void onClick(MealModel item);
+<i>95</i>&nbsp;    }
+<i>96</i>&nbsp;}
+<i>97</i>&nbsp;
+<i>98</i>&nbsp;
 </div>
 </div>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2018-05-24 14:33</div>
+    <div style="float:right;">generated on 2018-05-25 02:12</div>
 </div>
 </body>
 </html>

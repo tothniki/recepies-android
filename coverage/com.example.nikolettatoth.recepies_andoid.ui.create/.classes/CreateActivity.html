@@ -1,0 +1,223 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: CreateActivity</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.nikolettatoth.recepies_andoid.ui.create</a> ]
+</div>
+
+<h1>Coverage Summary for Class: CreateActivity (com.example.nikolettatoth.recepies_andoid.ui.create)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CreateActivity</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 33)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">CreateActivity$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 4)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 37)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.nikolettatoth.recepies_andoid.ui.create;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import android.content.Intent;
+<i>4</i>&nbsp;import android.support.design.widget.FloatingActionButton;
+<i>5</i>&nbsp;import android.support.design.widget.TextInputEditText;
+<i>6</i>&nbsp;import android.support.v7.app.AppCompatActivity;
+<i>7</i>&nbsp;import android.os.Bundle;
+<i>8</i>&nbsp;import android.support.v7.widget.Toolbar;
+<i>9</i>&nbsp;import android.view.View;
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;
+<i>12</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.R;
+<i>13</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.RecepiesApplication;
+<i>14</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.interactor.recepies.RepositoryInteractor;
+<i>15</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.model.MealModel;
+<i>16</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.detail.DetailActivity;
+<i>17</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.main.MainActivity;
+<i>18</i>&nbsp;
+<i>19</i>&nbsp;import java.util.List;
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;import javax.inject.Inject;
+<i>22</i>&nbsp;
+<b class="nc"><i>23</i>&nbsp;public class CreateActivity extends AppCompatActivity implements CreateScreen {</b>
+<i>24</i>&nbsp;    @Inject
+<i>25</i>&nbsp;    CreatePresenter createPresenter;
+<i>26</i>&nbsp;    @Inject
+<i>27</i>&nbsp;    RepositoryInteractor repositoryInteractor;
+<i>28</i>&nbsp;
+<b class="nc"><i>29</i>&nbsp;    String url = &quot;https://szamos.hu/upload/3/36/m/36855db9b7201c789f632898cdbc2020.png&quot;;</b>
+<i>30</i>&nbsp;    Long id;
+<i>31</i>&nbsp;    MealModel meal;
+<i>32</i>&nbsp;    TextInputEditText name;
+<i>33</i>&nbsp;    TextInputEditText image;
+<i>34</i>&nbsp;    TextInputEditText ingredients;
+<i>35</i>&nbsp;    TextInputEditText instructions;
+<i>36</i>&nbsp;
+<i>37</i>&nbsp;
+<i>38</i>&nbsp;    @Override
+<i>39</i>&nbsp;    protected void onCreate(Bundle savedInstanceState) {
+<b class="nc"><i>40</i>&nbsp;        super.onCreate(savedInstanceState);</b>
+<b class="nc"><i>41</i>&nbsp;        setContentView(R.layout.activity_create);</b>
+<b class="nc"><i>42</i>&nbsp;        RecepiesApplication application = (RecepiesApplication) getApplication();</b>
+<b class="nc"><i>43</i>&nbsp;        RecepiesApplication.injector.inject(this);</b>
+<i>44</i>&nbsp;
+<b class="nc"><i>45</i>&nbsp;        getSupportActionBar().setDisplayHomeAsUpEnabled(true);</b>
+<b class="nc"><i>46</i>&nbsp;        getSupportActionBar().setDisplayShowHomeEnabled(true);</b>
+<i>47</i>&nbsp;
+<b class="nc"><i>48</i>&nbsp;        setTitle(&quot;New recipe&quot;);</b>
+<i>49</i>&nbsp;
+<b class="nc"><i>50</i>&nbsp;        name = findViewById(R.id.name_input);</b>
+<b class="nc"><i>51</i>&nbsp;        image = findViewById(R.id.url_input);</b>
+<b class="nc"><i>52</i>&nbsp;        ingredients = findViewById(R.id.ingr_input);</b>
+<b class="nc"><i>53</i>&nbsp;        instructions = findViewById(R.id.inst_input);</b>
+<i>54</i>&nbsp;
+<b class="nc"><i>55</i>&nbsp;        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.addFab);</b>
+<b class="nc"><i>56</i>&nbsp;        fab.setOnClickListener(new View.OnClickListener() {</b>
+<i>57</i>&nbsp;            @Override
+<i>58</i>&nbsp;            public void onClick(View view) {
+<b class="nc"><i>59</i>&nbsp;                saveMeal();</b>
+<b class="nc"><i>60</i>&nbsp;                Intent i = new Intent(getApplicationContext(), MainActivity.class);</b>
+<i>61</i>&nbsp;               // i.putExtra(&quot;id&quot;, meal.getId());
+<i>62</i>&nbsp;              //  i.putExtra(&quot;name&quot;, meal.getName());
+<b class="nc"><i>63</i>&nbsp;                startActivity(i);</b>
+<i>64</i>&nbsp;            }
+<i>65</i>&nbsp;        });
+<i>66</i>&nbsp;    }
+<i>67</i>&nbsp;
+<i>68</i>&nbsp;    private void saveMeal(){
+<b class="nc"><i>69</i>&nbsp;        meal = new MealModel();</b>
+<b class="nc"><i>70</i>&nbsp;        meal.setId(getNextID());</b>
+<b class="nc"><i>71</i>&nbsp;        meal.setName(name.getText().toString());</b>
+<b class="nc"><i>72</i>&nbsp;        meal.setIngredients(ingredients.getText().toString());</b>
+<b class="nc"><i>73</i>&nbsp;        meal.setInstructions(instructions.getText().toString());</b>
+<b class="nc"><i>74</i>&nbsp;        meal.setPicture(url);</b>
+<i>75</i>&nbsp;        //meal.setPicture(image.getText().toString());
+<b class="nc"><i>76</i>&nbsp;        createPresenter.saveMeal(meal);</b>
+<i>77</i>&nbsp;    }
+<i>78</i>&nbsp;
+<i>79</i>&nbsp;    private long getNextID(){
+<b class="nc"><i>80</i>&nbsp;        List&lt;MealModel&gt; meals = repositoryInteractor.getAllMeals();</b>
+<b class="nc"><i>81</i>&nbsp;        int size = meals.size();</b>
+<b class="nc"><i>82</i>&nbsp;        long id = meals.get(size-1).getId()+1;</b>
+<b class="nc"><i>83</i>&nbsp;        return id;</b>
+<i>84</i>&nbsp;    }
+<i>85</i>&nbsp;
+<i>86</i>&nbsp;    @Override
+<i>87</i>&nbsp;    public void showMeal(MealModel m){
+<i>88</i>&nbsp;
+<i>89</i>&nbsp;    }
+<i>90</i>&nbsp;
+<i>91</i>&nbsp;    @Override
+<i>92</i>&nbsp;    protected void onStart() {
+<b class="nc"><i>93</i>&nbsp;        super.onStart();</b>
+<b class="nc"><i>94</i>&nbsp;        createPresenter.attachScreen(this);</b>
+<i>95</i>&nbsp;    }
+<i>96</i>&nbsp;
+<i>97</i>&nbsp;    @Override
+<i>98</i>&nbsp;    protected void onResume(){
+<b class="nc"><i>99</i>&nbsp;        super.onResume();</b>
+<i>100</i>&nbsp;    }
+<i>101</i>&nbsp;
+<i>102</i>&nbsp;    @Override
+<i>103</i>&nbsp;    protected void onStop() {
+<b class="nc"><i>104</i>&nbsp;        super.onStop();</b>
+<b class="nc"><i>105</i>&nbsp;        createPresenter.detachScreen();</b>
+<i>106</i>&nbsp;    }
+<i>107</i>&nbsp;
+<i>108</i>&nbsp;    @Override
+<i>109</i>&nbsp;    public boolean onSupportNavigateUp() {
+<b class="nc"><i>110</i>&nbsp;        onBackPressed();</b>
+<b class="nc"><i>111</i>&nbsp;        return true;</b>
+<i>112</i>&nbsp;    }
+<i>113</i>&nbsp;
+<i>114</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2018-05-25 02:12</div>
+</div>
+</body>
+</html>

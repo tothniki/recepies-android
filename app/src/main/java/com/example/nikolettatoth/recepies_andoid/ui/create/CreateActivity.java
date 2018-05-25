@@ -83,7 +83,10 @@ public class CreateActivity extends AppCompatActivity implements CreateScreen {
         return id;
     }
 
+    @Override
+    public void showMeal(MealModel m){
 
+    }
 
     @Override
     protected void onStart() {

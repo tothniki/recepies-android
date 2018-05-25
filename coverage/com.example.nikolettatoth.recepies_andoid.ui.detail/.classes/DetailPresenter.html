@@ -103,47 +103,48 @@
 <i>3</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.RecepiesApplication;
 <i>4</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.database.Repository;
 <i>5</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.interactor.recepies.RecepiesInteractor;
-<i>6</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.model.MealModel;
-<i>7</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.Presenter;
-<i>8</i>&nbsp;
-<i>9</i>&nbsp;import java.util.concurrent.Executor;
-<i>10</i>&nbsp;
-<i>11</i>&nbsp;import javax.inject.Inject;
-<i>12</i>&nbsp;
-<b class="fc"><i>13</i>&nbsp;public class DetailPresenter extends Presenter&lt;DetailScreen&gt; {</b>
-<i>14</i>&nbsp;    @Inject
-<i>15</i>&nbsp;    Repository repositoryInteractor;
-<i>16</i>&nbsp;
-<i>17</i>&nbsp;    @Inject
-<i>18</i>&nbsp;    Executor executor;
-<i>19</i>&nbsp;
-<i>20</i>&nbsp;    public void loadMeal(final long id){
-<b class="fc"><i>21</i>&nbsp;        executor.execute(new Runnable(){</b>
-<i>22</i>&nbsp;            @Override
-<i>23</i>&nbsp;            public void run(){
-<b class="fc"><i>24</i>&nbsp;                MealModel meal = repositoryInteractor.getMealById(id);</b>
-<b class="fc"><i>25</i>&nbsp;                screen.showMeal(meal);</b>
-<b class="fc"><i>26</i>&nbsp;            }</b>
-<i>27</i>&nbsp;        });
-<b class="fc"><i>28</i>&nbsp;    }</b>
-<i>29</i>&nbsp;
-<i>30</i>&nbsp;    @Override
-<i>31</i>&nbsp;    public void attachScreen(DetailScreen screen) {
-<b class="fc"><i>32</i>&nbsp;        super.attachScreen(screen);</b>
-<b class="fc"><i>33</i>&nbsp;        RecepiesApplication.injector.inject(this);</b>
-<b class="fc"><i>34</i>&nbsp;    }</b>
-<i>35</i>&nbsp;
-<i>36</i>&nbsp;    @Override
-<i>37</i>&nbsp;    public void detachScreen() {
-<b class="fc"><i>38</i>&nbsp;        super.detachScreen();</b>
-<b class="fc"><i>39</i>&nbsp;    }</b>
-<i>40</i>&nbsp;}
+<i>6</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.interactor.recepies.RepositoryInteractor;
+<i>7</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.model.MealModel;
+<i>8</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.Presenter;
+<i>9</i>&nbsp;
+<i>10</i>&nbsp;import java.util.concurrent.Executor;
+<i>11</i>&nbsp;
+<i>12</i>&nbsp;import javax.inject.Inject;
+<i>13</i>&nbsp;
+<b class="fc"><i>14</i>&nbsp;public class DetailPresenter extends Presenter&lt;DetailScreen&gt; {</b>
+<i>15</i>&nbsp;    @Inject
+<i>16</i>&nbsp;    RepositoryInteractor repositoryInteractor;
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;    @Inject
+<i>19</i>&nbsp;    Executor executor;
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;    public void loadMeal(final long id){
+<b class="fc"><i>22</i>&nbsp;        executor.execute(new Runnable(){</b>
+<i>23</i>&nbsp;            @Override
+<i>24</i>&nbsp;            public void run(){
+<b class="fc"><i>25</i>&nbsp;                MealModel meal = repositoryInteractor.getMealById(id);</b>
+<b class="fc"><i>26</i>&nbsp;                screen.showMeal(meal);</b>
+<b class="fc"><i>27</i>&nbsp;            }</b>
+<i>28</i>&nbsp;        });
+<b class="fc"><i>29</i>&nbsp;    }</b>
+<i>30</i>&nbsp;
+<i>31</i>&nbsp;    @Override
+<i>32</i>&nbsp;    public void attachScreen(DetailScreen screen) {
+<b class="fc"><i>33</i>&nbsp;        super.attachScreen(screen);</b>
+<b class="fc"><i>34</i>&nbsp;        RecepiesApplication.injector.inject(this);</b>
+<b class="fc"><i>35</i>&nbsp;    }</b>
+<i>36</i>&nbsp;
+<i>37</i>&nbsp;    @Override
+<i>38</i>&nbsp;    public void detachScreen() {
+<b class="fc"><i>39</i>&nbsp;        super.detachScreen();</b>
+<b class="fc"><i>40</i>&nbsp;    }</b>
+<i>41</i>&nbsp;}
 </div>
 </div>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2018-05-24 14:33</div>
+    <div style="float:right;">generated on 2018-05-25 02:12</div>
 </div>
 </body>
 </html>

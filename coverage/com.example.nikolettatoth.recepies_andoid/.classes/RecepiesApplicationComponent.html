@@ -44,42 +44,47 @@
 <i>6</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.interactor.recepies.RepositoryInteractor;
 <i>7</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.network.NetworkModul;
 <i>8</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.UIModule;
-<i>9</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.detail.DetailActivity;
-<i>10</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.detail.DetailPresenter;
-<i>11</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.main.MainActivity;
-<i>12</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.main.MainPresenter;
-<i>13</i>&nbsp;
-<i>14</i>&nbsp;import javax.inject.Singleton;
+<i>9</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.create.CreateActivity;
+<i>10</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.create.CreatePresenter;
+<i>11</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.detail.DetailActivity;
+<i>12</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.detail.DetailPresenter;
+<i>13</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.main.MainActivity;
+<i>14</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.main.MainPresenter;
 <i>15</i>&nbsp;
-<i>16</i>&nbsp;import dagger.Component;
+<i>16</i>&nbsp;import javax.inject.Singleton;
 <i>17</i>&nbsp;
-<i>18</i>&nbsp;@Singleton
-<i>19</i>&nbsp;@Component(modules = {UIModule.class,
-<i>20</i>&nbsp;        InteractorModule.class, NetworkModul.class, RepositoryModule.class})
-<i>21</i>&nbsp;public interface RecepiesApplicationComponent {
-<i>22</i>&nbsp;
-<i>23</i>&nbsp;    void inject(MainActivity mainActivity);
-<i>24</i>&nbsp;    void inject(MainPresenter mainPresenter);
-<i>25</i>&nbsp;
-<i>26</i>&nbsp;    void inject(DetailActivity detailActivity);
-<i>27</i>&nbsp;    void inject(DetailPresenter detailPresenter);
-<i>28</i>&nbsp;
-<i>29</i>&nbsp;    void inject(RecepiesInteractor recepiesInteractor);
-<i>30</i>&nbsp;    void inject(RepositoryInteractor repositoryInteractor);
-<i>31</i>&nbsp;
-<i>32</i>&nbsp;    //void inject(RecepiesApplication recepiesApplication);
+<i>18</i>&nbsp;import dagger.Component;
+<i>19</i>&nbsp;
+<i>20</i>&nbsp;@Singleton
+<i>21</i>&nbsp;@Component(modules = {UIModule.class,
+<i>22</i>&nbsp;        InteractorModule.class, NetworkModul.class, RepositoryModule.class})
+<i>23</i>&nbsp;public interface RecepiesApplicationComponent {
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;    void inject(MainActivity mainActivity);
+<i>26</i>&nbsp;    void inject(MainPresenter mainPresenter);
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;    void inject(DetailActivity detailActivity);
+<i>29</i>&nbsp;    void inject(DetailPresenter detailPresenter);
+<i>30</i>&nbsp;
+<i>31</i>&nbsp;    void inject(RecepiesInteractor recepiesInteractor);
+<i>32</i>&nbsp;    void inject(RepositoryInteractor repositoryInteractor);
 <i>33</i>&nbsp;
-<i>34</i>&nbsp;
-<i>35</i>&nbsp;
-<i>36</i>&nbsp;    }
-<i>37</i>&nbsp;
+<i>34</i>&nbsp;    void inject(CreateActivity createActivity);
+<i>35</i>&nbsp;    void inject(CreatePresenter createPresenter);
+<i>36</i>&nbsp;
+<i>37</i>&nbsp;    //void inject(RecepiesApplication recepiesApplication);
 <i>38</i>&nbsp;
+<i>39</i>&nbsp;
+<i>40</i>&nbsp;
+<i>41</i>&nbsp;    }
+<i>42</i>&nbsp;
+<i>43</i>&nbsp;
 </div>
 </div>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2018-05-24 14:33</div>
+    <div style="float:right;">generated on 2018-05-25 02:12</div>
 </div>
 </body>
 </html>

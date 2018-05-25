@@ -39,18 +39,18 @@
   <td class="name">DaggerRecepiesApplicationComponent</td>
 <td class="coverageStat">
   <span class="percent">
-    45,5%
+    38,5%
   </span>
   <span class="absValue">
-    (5/ 11)
+    (5/ 13)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    75%
+    72,4%
   </span>
   <span class="absValue">
-    (36/ 48)
+    (42/ 58)
   </span>
 </td>
 </tr>
@@ -77,18 +77,18 @@
   <td class="name"><strong>total</strong></td>
 <td class="coverageStat">
   <span class="percent">
-    55,6%
+    50%
   </span>
   <span class="absValue">
-    (10/ 18)
+    (10/ 20)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    73,1%
+    71,4%
   </span>
   <span class="absValue">
-    (49/ 67)
+    (55/ 77)
   </span>
 </td>
 </tr>
@@ -114,196 +114,229 @@
 <i>14</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.network.NetworkModul_ProvideMealApiFactory;
 <i>15</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.network.api.MealApi;
 <i>16</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.UIModule;
-<i>17</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.UIModule_ProvideDetailPresenterFactory;
-<i>18</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.UIModule_ProvideExecutorFactory;
-<i>19</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.UIModule_ProvideMainPresenterFactory;
-<i>20</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.detail.DetailActivity;
-<i>21</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.detail.DetailActivity_MembersInjector;
-<i>22</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.detail.DetailPresenter;
-<i>23</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.detail.DetailPresenter_MembersInjector;
-<i>24</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.main.MainActivity;
-<i>25</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.main.MainActivity_MembersInjector;
-<i>26</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.main.MainPresenter;
-<i>27</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.main.MainPresenter_MembersInjector;
-<i>28</i>&nbsp;import dagger.MembersInjector;
-<i>29</i>&nbsp;import dagger.internal.DoubleCheck;
-<i>30</i>&nbsp;import dagger.internal.Preconditions;
-<i>31</i>&nbsp;import java.util.concurrent.Executor;
-<i>32</i>&nbsp;import javax.annotation.Generated;
-<i>33</i>&nbsp;import javax.inject.Provider;
-<i>34</i>&nbsp;
-<b class="fc"><i>35</i>&nbsp;@Generated(</b>
-<i>36</i>&nbsp;  value = &quot;dagger.internal.codegen.ComponentProcessor&quot;,
-<i>37</i>&nbsp;  comments = &quot;https://google.github.io/dagger&quot;
-<i>38</i>&nbsp;)
-<b class="fc"><i>39</i>&nbsp;public final class DaggerRecepiesApplicationComponent implements RecepiesApplicationComponent {</b>
-<i>40</i>&nbsp;  private Provider&lt;MainPresenter&gt; provideMainPresenterProvider;
-<i>41</i>&nbsp;
-<i>42</i>&nbsp;  private MembersInjector&lt;MainActivity&gt; mainActivityMembersInjector;
-<i>43</i>&nbsp;
-<i>44</i>&nbsp;  private Provider&lt;RecepiesInteractor&gt; provideRecepiesInteractorProvider;
-<i>45</i>&nbsp;
-<i>46</i>&nbsp;  private Provider&lt;RepositoryInteractor&gt; provideRepositoryInteractorProvider;
-<i>47</i>&nbsp;
-<i>48</i>&nbsp;  private Provider&lt;Executor&gt; provideExecutorProvider;
-<i>49</i>&nbsp;
-<i>50</i>&nbsp;  private MembersInjector&lt;MainPresenter&gt; mainPresenterMembersInjector;
-<i>51</i>&nbsp;
-<i>52</i>&nbsp;  private Provider&lt;DetailPresenter&gt; provideDetailPresenterProvider;
-<i>53</i>&nbsp;
-<i>54</i>&nbsp;  private MembersInjector&lt;DetailActivity&gt; detailActivityMembersInjector;
-<i>55</i>&nbsp;
-<i>56</i>&nbsp;  private Provider&lt;Repository&gt; provideRepositoryProvider;
-<i>57</i>&nbsp;
-<i>58</i>&nbsp;  private MembersInjector&lt;DetailPresenter&gt; detailPresenterMembersInjector;
-<i>59</i>&nbsp;
-<i>60</i>&nbsp;  private Provider&lt;MealApi&gt; provideMealApiProvider;
-<i>61</i>&nbsp;
-<i>62</i>&nbsp;  private MembersInjector&lt;RecepiesInteractor&gt; recepiesInteractorMembersInjector;
-<i>63</i>&nbsp;
-<i>64</i>&nbsp;  private MembersInjector&lt;RepositoryInteractor&gt; repositoryInteractorMembersInjector;
-<i>65</i>&nbsp;
-<b class="fc"><i>66</i>&nbsp;  private DaggerRecepiesApplicationComponent(Builder builder) {</b>
-<b class="fc"><i>67</i>&nbsp;    assert builder != null;</b>
-<b class="fc"><i>68</i>&nbsp;    initialize(builder);</b>
-<b class="fc"><i>69</i>&nbsp;  }</b>
+<i>17</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.UIModule_ProvideCreatePresenterFactory;
+<i>18</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.UIModule_ProvideDetailPresenterFactory;
+<i>19</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.UIModule_ProvideExecutorFactory;
+<i>20</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.UIModule_ProvideMainPresenterFactory;
+<i>21</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.create.CreateActivity;
+<i>22</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.create.CreateActivity_MembersInjector;
+<i>23</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.create.CreatePresenter;
+<i>24</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.create.CreatePresenter_MembersInjector;
+<i>25</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.detail.DetailActivity;
+<i>26</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.detail.DetailActivity_MembersInjector;
+<i>27</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.detail.DetailPresenter;
+<i>28</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.detail.DetailPresenter_MembersInjector;
+<i>29</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.main.MainActivity;
+<i>30</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.main.MainActivity_MembersInjector;
+<i>31</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.main.MainPresenter;
+<i>32</i>&nbsp;import com.example.nikolettatoth.recepies_andoid.ui.main.MainPresenter_MembersInjector;
+<i>33</i>&nbsp;import dagger.MembersInjector;
+<i>34</i>&nbsp;import dagger.internal.DoubleCheck;
+<i>35</i>&nbsp;import dagger.internal.Preconditions;
+<i>36</i>&nbsp;import java.util.concurrent.Executor;
+<i>37</i>&nbsp;import javax.annotation.Generated;
+<i>38</i>&nbsp;import javax.inject.Provider;
+<i>39</i>&nbsp;
+<b class="fc"><i>40</i>&nbsp;@Generated(</b>
+<i>41</i>&nbsp;  value = &quot;dagger.internal.codegen.ComponentProcessor&quot;,
+<i>42</i>&nbsp;  comments = &quot;https://google.github.io/dagger&quot;
+<i>43</i>&nbsp;)
+<b class="fc"><i>44</i>&nbsp;public final class DaggerRecepiesApplicationComponent implements RecepiesApplicationComponent {</b>
+<i>45</i>&nbsp;  private Provider&lt;MainPresenter&gt; provideMainPresenterProvider;
+<i>46</i>&nbsp;
+<i>47</i>&nbsp;  private MembersInjector&lt;MainActivity&gt; mainActivityMembersInjector;
+<i>48</i>&nbsp;
+<i>49</i>&nbsp;  private Provider&lt;RecepiesInteractor&gt; provideRecepiesInteractorProvider;
+<i>50</i>&nbsp;
+<i>51</i>&nbsp;  private Provider&lt;RepositoryInteractor&gt; provideRepositoryInteractorProvider;
+<i>52</i>&nbsp;
+<i>53</i>&nbsp;  private Provider&lt;Executor&gt; provideExecutorProvider;
+<i>54</i>&nbsp;
+<i>55</i>&nbsp;  private MembersInjector&lt;MainPresenter&gt; mainPresenterMembersInjector;
+<i>56</i>&nbsp;
+<i>57</i>&nbsp;  private Provider&lt;DetailPresenter&gt; provideDetailPresenterProvider;
+<i>58</i>&nbsp;
+<i>59</i>&nbsp;  private MembersInjector&lt;DetailActivity&gt; detailActivityMembersInjector;
+<i>60</i>&nbsp;
+<i>61</i>&nbsp;  private MembersInjector&lt;DetailPresenter&gt; detailPresenterMembersInjector;
+<i>62</i>&nbsp;
+<i>63</i>&nbsp;  private Provider&lt;MealApi&gt; provideMealApiProvider;
+<i>64</i>&nbsp;
+<i>65</i>&nbsp;  private MembersInjector&lt;RecepiesInteractor&gt; recepiesInteractorMembersInjector;
+<i>66</i>&nbsp;
+<i>67</i>&nbsp;  private Provider&lt;Repository&gt; provideRepositoryProvider;
+<i>68</i>&nbsp;
+<i>69</i>&nbsp;  private MembersInjector&lt;RepositoryInteractor&gt; repositoryInteractorMembersInjector;
 <i>70</i>&nbsp;
-<i>71</i>&nbsp;  public static Builder builder() {
-<b class="fc"><i>72</i>&nbsp;    return new Builder();</b>
-<i>73</i>&nbsp;  }
+<i>71</i>&nbsp;  private Provider&lt;CreatePresenter&gt; provideCreatePresenterProvider;
+<i>72</i>&nbsp;
+<i>73</i>&nbsp;  private MembersInjector&lt;CreateActivity&gt; createActivityMembersInjector;
 <i>74</i>&nbsp;
-<i>75</i>&nbsp;  @SuppressWarnings(&quot;unchecked&quot;)
-<i>76</i>&nbsp;  private void initialize(final Builder builder) {
-<i>77</i>&nbsp;
-<b class="fc"><i>78</i>&nbsp;    this.provideMainPresenterProvider =</b>
-<b class="fc"><i>79</i>&nbsp;        DoubleCheck.provider(UIModule_ProvideMainPresenterFactory.create(builder.uIModule));</b>
-<i>80</i>&nbsp;
-<b class="fc"><i>81</i>&nbsp;    this.mainActivityMembersInjector =</b>
-<b class="fc"><i>82</i>&nbsp;        MainActivity_MembersInjector.create(provideMainPresenterProvider);</b>
-<i>83</i>&nbsp;
-<b class="fc"><i>84</i>&nbsp;    this.provideRecepiesInteractorProvider =</b>
-<b class="fc"><i>85</i>&nbsp;        InteractorModule_ProvideRecepiesInteractorFactory.create(builder.interactorModule);</b>
-<i>86</i>&nbsp;
-<b class="fc"><i>87</i>&nbsp;    this.provideRepositoryInteractorProvider =</b>
-<b class="fc"><i>88</i>&nbsp;        DoubleCheck.provider(</b>
-<b class="fc"><i>89</i>&nbsp;            InteractorModule_ProvideRepositoryInteractorFactory.create(builder.interactorModule));</b>
-<i>90</i>&nbsp;
-<b class="fc"><i>91</i>&nbsp;    this.provideExecutorProvider =</b>
-<b class="fc"><i>92</i>&nbsp;        DoubleCheck.provider(UIModule_ProvideExecutorFactory.create(builder.uIModule));</b>
-<i>93</i>&nbsp;
-<b class="fc"><i>94</i>&nbsp;    this.mainPresenterMembersInjector =</b>
-<b class="fc"><i>95</i>&nbsp;        MainPresenter_MembersInjector.create(</b>
-<i>96</i>&nbsp;            provideRecepiesInteractorProvider,
-<i>97</i>&nbsp;            provideRepositoryInteractorProvider,
-<i>98</i>&nbsp;            provideExecutorProvider);
-<i>99</i>&nbsp;
-<b class="fc"><i>100</i>&nbsp;    this.provideDetailPresenterProvider =</b>
-<b class="fc"><i>101</i>&nbsp;        DoubleCheck.provider(UIModule_ProvideDetailPresenterFactory.create(builder.uIModule));</b>
-<i>102</i>&nbsp;
-<b class="fc"><i>103</i>&nbsp;    this.detailActivityMembersInjector =</b>
-<b class="fc"><i>104</i>&nbsp;        DetailActivity_MembersInjector.create(provideDetailPresenterProvider);</b>
-<i>105</i>&nbsp;
-<b class="fc"><i>106</i>&nbsp;    this.provideRepositoryProvider =</b>
-<b class="fc"><i>107</i>&nbsp;        DoubleCheck.provider(</b>
-<b class="fc"><i>108</i>&nbsp;            RepositoryModule_ProvideRepositoryFactory.create(builder.repositoryModule));</b>
-<i>109</i>&nbsp;
-<b class="fc"><i>110</i>&nbsp;    this.detailPresenterMembersInjector =</b>
-<b class="fc"><i>111</i>&nbsp;        DetailPresenter_MembersInjector.create(provideRepositoryProvider, provideExecutorProvider);</b>
-<i>112</i>&nbsp;
-<b class="fc"><i>113</i>&nbsp;    this.provideMealApiProvider =</b>
-<b class="fc"><i>114</i>&nbsp;        DoubleCheck.provider(NetworkModul_ProvideMealApiFactory.create(builder.networkModul));</b>
-<i>115</i>&nbsp;
-<b class="fc"><i>116</i>&nbsp;    this.recepiesInteractorMembersInjector =</b>
-<b class="fc"><i>117</i>&nbsp;        RecepiesInteractor_MembersInjector.create(provideMealApiProvider);</b>
-<i>118</i>&nbsp;
-<b class="fc"><i>119</i>&nbsp;    this.repositoryInteractorMembersInjector =</b>
-<b class="fc"><i>120</i>&nbsp;        RepositoryInteractor_MembersInjector.create(provideRepositoryProvider);</b>
-<b class="fc"><i>121</i>&nbsp;  }</b>
-<i>122</i>&nbsp;
-<i>123</i>&nbsp;  @Override
-<i>124</i>&nbsp;  public void inject(MainActivity mainActivity) {
-<b class="nc"><i>125</i>&nbsp;    mainActivityMembersInjector.injectMembers(mainActivity);</b>
-<b class="nc"><i>126</i>&nbsp;  }</b>
-<i>127</i>&nbsp;
-<i>128</i>&nbsp;  @Override
-<i>129</i>&nbsp;  public void inject(MainPresenter mainPresenter) {
-<b class="nc"><i>130</i>&nbsp;    mainPresenterMembersInjector.injectMembers(mainPresenter);</b>
-<b class="nc"><i>131</i>&nbsp;  }</b>
-<i>132</i>&nbsp;
-<i>133</i>&nbsp;  @Override
-<i>134</i>&nbsp;  public void inject(DetailActivity detailActivity) {
-<b class="nc"><i>135</i>&nbsp;    detailActivityMembersInjector.injectMembers(detailActivity);</b>
-<b class="nc"><i>136</i>&nbsp;  }</b>
-<i>137</i>&nbsp;
-<i>138</i>&nbsp;  @Override
-<i>139</i>&nbsp;  public void inject(DetailPresenter detailPresenter) {
-<b class="nc"><i>140</i>&nbsp;    detailPresenterMembersInjector.injectMembers(detailPresenter);</b>
-<b class="nc"><i>141</i>&nbsp;  }</b>
-<i>142</i>&nbsp;
-<i>143</i>&nbsp;  @Override
-<i>144</i>&nbsp;  public void inject(RecepiesInteractor recepiesInteractor) {
-<b class="nc"><i>145</i>&nbsp;    recepiesInteractorMembersInjector.injectMembers(recepiesInteractor);</b>
-<b class="nc"><i>146</i>&nbsp;  }</b>
-<i>147</i>&nbsp;
-<i>148</i>&nbsp;  @Override
-<i>149</i>&nbsp;  public void inject(RepositoryInteractor repositoryInteractor) {
-<b class="nc"><i>150</i>&nbsp;    repositoryInteractorMembersInjector.injectMembers(repositoryInteractor);</b>
-<b class="nc"><i>151</i>&nbsp;  }</b>
-<i>152</i>&nbsp;
-<b class="fc"><i>153</i>&nbsp;  public static final class Builder {</b>
-<i>154</i>&nbsp;    private UIModule uIModule;
+<i>75</i>&nbsp;  private MembersInjector&lt;CreatePresenter&gt; createPresenterMembersInjector;
+<i>76</i>&nbsp;
+<b class="fc"><i>77</i>&nbsp;  private DaggerRecepiesApplicationComponent(Builder builder) {</b>
+<b class="fc"><i>78</i>&nbsp;    assert builder != null;</b>
+<b class="fc"><i>79</i>&nbsp;    initialize(builder);</b>
+<b class="fc"><i>80</i>&nbsp;  }</b>
+<i>81</i>&nbsp;
+<i>82</i>&nbsp;  public static Builder builder() {
+<b class="fc"><i>83</i>&nbsp;    return new Builder();</b>
+<i>84</i>&nbsp;  }
+<i>85</i>&nbsp;
+<i>86</i>&nbsp;  @SuppressWarnings(&quot;unchecked&quot;)
+<i>87</i>&nbsp;  private void initialize(final Builder builder) {
+<i>88</i>&nbsp;
+<b class="fc"><i>89</i>&nbsp;    this.provideMainPresenterProvider =</b>
+<b class="fc"><i>90</i>&nbsp;        DoubleCheck.provider(UIModule_ProvideMainPresenterFactory.create(builder.uIModule));</b>
+<i>91</i>&nbsp;
+<b class="fc"><i>92</i>&nbsp;    this.mainActivityMembersInjector =</b>
+<b class="fc"><i>93</i>&nbsp;        MainActivity_MembersInjector.create(provideMainPresenterProvider);</b>
+<i>94</i>&nbsp;
+<b class="fc"><i>95</i>&nbsp;    this.provideRecepiesInteractorProvider =</b>
+<b class="fc"><i>96</i>&nbsp;        InteractorModule_ProvideRecepiesInteractorFactory.create(builder.interactorModule);</b>
+<i>97</i>&nbsp;
+<b class="fc"><i>98</i>&nbsp;    this.provideRepositoryInteractorProvider =</b>
+<b class="fc"><i>99</i>&nbsp;        DoubleCheck.provider(</b>
+<b class="fc"><i>100</i>&nbsp;            InteractorModule_ProvideRepositoryInteractorFactory.create(builder.interactorModule));</b>
+<i>101</i>&nbsp;
+<b class="fc"><i>102</i>&nbsp;    this.provideExecutorProvider =</b>
+<b class="fc"><i>103</i>&nbsp;        DoubleCheck.provider(UIModule_ProvideExecutorFactory.create(builder.uIModule));</b>
+<i>104</i>&nbsp;
+<b class="fc"><i>105</i>&nbsp;    this.mainPresenterMembersInjector =</b>
+<b class="fc"><i>106</i>&nbsp;        MainPresenter_MembersInjector.create(</b>
+<i>107</i>&nbsp;            provideRecepiesInteractorProvider,
+<i>108</i>&nbsp;            provideRepositoryInteractorProvider,
+<i>109</i>&nbsp;            provideExecutorProvider);
+<i>110</i>&nbsp;
+<b class="fc"><i>111</i>&nbsp;    this.provideDetailPresenterProvider =</b>
+<b class="fc"><i>112</i>&nbsp;        DoubleCheck.provider(UIModule_ProvideDetailPresenterFactory.create(builder.uIModule));</b>
+<i>113</i>&nbsp;
+<b class="fc"><i>114</i>&nbsp;    this.detailActivityMembersInjector =</b>
+<b class="fc"><i>115</i>&nbsp;        DetailActivity_MembersInjector.create(provideDetailPresenterProvider);</b>
+<i>116</i>&nbsp;
+<b class="fc"><i>117</i>&nbsp;    this.detailPresenterMembersInjector =</b>
+<b class="fc"><i>118</i>&nbsp;        DetailPresenter_MembersInjector.create(</b>
+<i>119</i>&nbsp;            provideRepositoryInteractorProvider, provideExecutorProvider);
+<i>120</i>&nbsp;
+<b class="fc"><i>121</i>&nbsp;    this.provideMealApiProvider =</b>
+<b class="fc"><i>122</i>&nbsp;        DoubleCheck.provider(NetworkModul_ProvideMealApiFactory.create(builder.networkModul));</b>
+<i>123</i>&nbsp;
+<b class="fc"><i>124</i>&nbsp;    this.recepiesInteractorMembersInjector =</b>
+<b class="fc"><i>125</i>&nbsp;        RecepiesInteractor_MembersInjector.create(provideMealApiProvider);</b>
+<i>126</i>&nbsp;
+<b class="fc"><i>127</i>&nbsp;    this.provideRepositoryProvider =</b>
+<b class="fc"><i>128</i>&nbsp;        DoubleCheck.provider(</b>
+<b class="fc"><i>129</i>&nbsp;            RepositoryModule_ProvideRepositoryFactory.create(builder.repositoryModule));</b>
+<i>130</i>&nbsp;
+<b class="fc"><i>131</i>&nbsp;    this.repositoryInteractorMembersInjector =</b>
+<b class="fc"><i>132</i>&nbsp;        RepositoryInteractor_MembersInjector.create(provideRepositoryProvider);</b>
+<i>133</i>&nbsp;
+<b class="fc"><i>134</i>&nbsp;    this.provideCreatePresenterProvider =</b>
+<b class="fc"><i>135</i>&nbsp;        DoubleCheck.provider(UIModule_ProvideCreatePresenterFactory.create(builder.uIModule));</b>
+<i>136</i>&nbsp;
+<b class="fc"><i>137</i>&nbsp;    this.createActivityMembersInjector =</b>
+<b class="fc"><i>138</i>&nbsp;        CreateActivity_MembersInjector.create(</b>
+<i>139</i>&nbsp;            provideCreatePresenterProvider, provideRepositoryInteractorProvider);
+<i>140</i>&nbsp;
+<b class="fc"><i>141</i>&nbsp;    this.createPresenterMembersInjector =</b>
+<b class="fc"><i>142</i>&nbsp;        CreatePresenter_MembersInjector.create(</b>
+<i>143</i>&nbsp;            provideRepositoryInteractorProvider, provideExecutorProvider);
+<b class="fc"><i>144</i>&nbsp;  }</b>
+<i>145</i>&nbsp;
+<i>146</i>&nbsp;  @Override
+<i>147</i>&nbsp;  public void inject(MainActivity mainActivity) {
+<b class="nc"><i>148</i>&nbsp;    mainActivityMembersInjector.injectMembers(mainActivity);</b>
+<b class="nc"><i>149</i>&nbsp;  }</b>
+<i>150</i>&nbsp;
+<i>151</i>&nbsp;  @Override
+<i>152</i>&nbsp;  public void inject(MainPresenter mainPresenter) {
+<b class="nc"><i>153</i>&nbsp;    mainPresenterMembersInjector.injectMembers(mainPresenter);</b>
+<b class="nc"><i>154</i>&nbsp;  }</b>
 <i>155</i>&nbsp;
-<i>156</i>&nbsp;    private InteractorModule interactorModule;
-<i>157</i>&nbsp;
-<i>158</i>&nbsp;    private RepositoryModule repositoryModule;
-<i>159</i>&nbsp;
-<i>160</i>&nbsp;    private NetworkModul networkModul;
-<i>161</i>&nbsp;
-<b class="fc"><i>162</i>&nbsp;    private Builder() {}</b>
-<i>163</i>&nbsp;
-<i>164</i>&nbsp;    public RecepiesApplicationComponent build() {
-<b class="fc"><i>165</i>&nbsp;      if (uIModule == null) {</b>
-<b class="nc"><i>166</i>&nbsp;        throw new IllegalStateException(UIModule.class.getCanonicalName() + &quot; must be set&quot;);</b>
-<i>167</i>&nbsp;      }
-<b class="fc"><i>168</i>&nbsp;      if (interactorModule == null) {</b>
-<b class="fc"><i>169</i>&nbsp;        this.interactorModule = new InteractorModule();</b>
-<i>170</i>&nbsp;      }
-<b class="fc"><i>171</i>&nbsp;      if (repositoryModule == null) {</b>
-<b class="nc"><i>172</i>&nbsp;        throw new IllegalStateException(RepositoryModule.class.getCanonicalName() + &quot; must be set&quot;);</b>
-<i>173</i>&nbsp;      }
-<b class="fc"><i>174</i>&nbsp;      if (networkModul == null) {</b>
-<b class="fc"><i>175</i>&nbsp;        this.networkModul = new NetworkModul();</b>
-<i>176</i>&nbsp;      }
-<b class="fc"><i>177</i>&nbsp;      return new DaggerRecepiesApplicationComponent(this);</b>
-<i>178</i>&nbsp;    }
-<i>179</i>&nbsp;
-<i>180</i>&nbsp;    public Builder uIModule(UIModule uIModule) {
-<b class="fc"><i>181</i>&nbsp;      this.uIModule = Preconditions.checkNotNull(uIModule);</b>
-<b class="fc"><i>182</i>&nbsp;      return this;</b>
-<i>183</i>&nbsp;    }
-<i>184</i>&nbsp;
-<i>185</i>&nbsp;    public Builder interactorModule(InteractorModule interactorModule) {
-<b class="nc"><i>186</i>&nbsp;      this.interactorModule = Preconditions.checkNotNull(interactorModule);</b>
-<b class="nc"><i>187</i>&nbsp;      return this;</b>
-<i>188</i>&nbsp;    }
-<i>189</i>&nbsp;
-<i>190</i>&nbsp;    public Builder networkModul(NetworkModul networkModul) {
-<b class="nc"><i>191</i>&nbsp;      this.networkModul = Preconditions.checkNotNull(networkModul);</b>
-<b class="nc"><i>192</i>&nbsp;      return this;</b>
-<i>193</i>&nbsp;    }
+<i>156</i>&nbsp;  @Override
+<i>157</i>&nbsp;  public void inject(DetailActivity detailActivity) {
+<b class="nc"><i>158</i>&nbsp;    detailActivityMembersInjector.injectMembers(detailActivity);</b>
+<b class="nc"><i>159</i>&nbsp;  }</b>
+<i>160</i>&nbsp;
+<i>161</i>&nbsp;  @Override
+<i>162</i>&nbsp;  public void inject(DetailPresenter detailPresenter) {
+<b class="nc"><i>163</i>&nbsp;    detailPresenterMembersInjector.injectMembers(detailPresenter);</b>
+<b class="nc"><i>164</i>&nbsp;  }</b>
+<i>165</i>&nbsp;
+<i>166</i>&nbsp;  @Override
+<i>167</i>&nbsp;  public void inject(RecepiesInteractor recepiesInteractor) {
+<b class="nc"><i>168</i>&nbsp;    recepiesInteractorMembersInjector.injectMembers(recepiesInteractor);</b>
+<b class="nc"><i>169</i>&nbsp;  }</b>
+<i>170</i>&nbsp;
+<i>171</i>&nbsp;  @Override
+<i>172</i>&nbsp;  public void inject(RepositoryInteractor repositoryInteractor) {
+<b class="nc"><i>173</i>&nbsp;    repositoryInteractorMembersInjector.injectMembers(repositoryInteractor);</b>
+<b class="nc"><i>174</i>&nbsp;  }</b>
+<i>175</i>&nbsp;
+<i>176</i>&nbsp;  @Override
+<i>177</i>&nbsp;  public void inject(CreateActivity createActivity) {
+<b class="nc"><i>178</i>&nbsp;    createActivityMembersInjector.injectMembers(createActivity);</b>
+<b class="nc"><i>179</i>&nbsp;  }</b>
+<i>180</i>&nbsp;
+<i>181</i>&nbsp;  @Override
+<i>182</i>&nbsp;  public void inject(CreatePresenter createPresenter) {
+<b class="nc"><i>183</i>&nbsp;    createPresenterMembersInjector.injectMembers(createPresenter);</b>
+<b class="nc"><i>184</i>&nbsp;  }</b>
+<i>185</i>&nbsp;
+<b class="fc"><i>186</i>&nbsp;  public static final class Builder {</b>
+<i>187</i>&nbsp;    private UIModule uIModule;
+<i>188</i>&nbsp;
+<i>189</i>&nbsp;    private InteractorModule interactorModule;
+<i>190</i>&nbsp;
+<i>191</i>&nbsp;    private NetworkModul networkModul;
+<i>192</i>&nbsp;
+<i>193</i>&nbsp;    private RepositoryModule repositoryModule;
 <i>194</i>&nbsp;
-<i>195</i>&nbsp;    public Builder repositoryModule(RepositoryModule repositoryModule) {
-<b class="fc"><i>196</i>&nbsp;      this.repositoryModule = Preconditions.checkNotNull(repositoryModule);</b>
-<b class="fc"><i>197</i>&nbsp;      return this;</b>
-<i>198</i>&nbsp;    }
-<i>199</i>&nbsp;  }
-<i>200</i>&nbsp;}
+<b class="fc"><i>195</i>&nbsp;    private Builder() {}</b>
+<i>196</i>&nbsp;
+<i>197</i>&nbsp;    public RecepiesApplicationComponent build() {
+<b class="fc"><i>198</i>&nbsp;      if (uIModule == null) {</b>
+<b class="nc"><i>199</i>&nbsp;        throw new IllegalStateException(UIModule.class.getCanonicalName() + &quot; must be set&quot;);</b>
+<i>200</i>&nbsp;      }
+<b class="fc"><i>201</i>&nbsp;      if (interactorModule == null) {</b>
+<b class="fc"><i>202</i>&nbsp;        this.interactorModule = new InteractorModule();</b>
+<i>203</i>&nbsp;      }
+<b class="fc"><i>204</i>&nbsp;      if (networkModul == null) {</b>
+<b class="fc"><i>205</i>&nbsp;        this.networkModul = new NetworkModul();</b>
+<i>206</i>&nbsp;      }
+<b class="fc"><i>207</i>&nbsp;      if (repositoryModule == null) {</b>
+<b class="nc"><i>208</i>&nbsp;        throw new IllegalStateException(RepositoryModule.class.getCanonicalName() + &quot; must be set&quot;);</b>
+<i>209</i>&nbsp;      }
+<b class="fc"><i>210</i>&nbsp;      return new DaggerRecepiesApplicationComponent(this);</b>
+<i>211</i>&nbsp;    }
+<i>212</i>&nbsp;
+<i>213</i>&nbsp;    public Builder uIModule(UIModule uIModule) {
+<b class="fc"><i>214</i>&nbsp;      this.uIModule = Preconditions.checkNotNull(uIModule);</b>
+<b class="fc"><i>215</i>&nbsp;      return this;</b>
+<i>216</i>&nbsp;    }
+<i>217</i>&nbsp;
+<i>218</i>&nbsp;    public Builder interactorModule(InteractorModule interactorModule) {
+<b class="nc"><i>219</i>&nbsp;      this.interactorModule = Preconditions.checkNotNull(interactorModule);</b>
+<b class="nc"><i>220</i>&nbsp;      return this;</b>
+<i>221</i>&nbsp;    }
+<i>222</i>&nbsp;
+<i>223</i>&nbsp;    public Builder networkModul(NetworkModul networkModul) {
+<b class="nc"><i>224</i>&nbsp;      this.networkModul = Preconditions.checkNotNull(networkModul);</b>
+<b class="nc"><i>225</i>&nbsp;      return this;</b>
+<i>226</i>&nbsp;    }
+<i>227</i>&nbsp;
+<i>228</i>&nbsp;    public Builder repositoryModule(RepositoryModule repositoryModule) {
+<b class="fc"><i>229</i>&nbsp;      this.repositoryModule = Preconditions.checkNotNull(repositoryModule);</b>
+<b class="fc"><i>230</i>&nbsp;      return this;</b>
+<i>231</i>&nbsp;    }
+<i>232</i>&nbsp;  }
+<i>233</i>&nbsp;}
 </div>
 </div>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2018-05-24 14:33</div>
+    <div style="float:right;">generated on 2018-05-25 02:12</div>
 </div>
 </body>
 </html>

@@ -22,7 +22,8 @@ public class CreatePresenter extends Presenter<CreateScreen> {
             @Override
             public void run() {
                     repositoryInteractor.saveMeal(m);
-
+                    //only because of the unit test
+                    screen.showMeal(repositoryInteractor.getMealById(m.getId()));
             }
         });
     }
